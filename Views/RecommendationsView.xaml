@@ -1,0 +1,42 @@
+﻿<Window x:Class="RecomendMovie.Views.RecommendationsView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Recommendations" Height="600" Width="800">
+    <Grid>
+        <TabControl>
+            <TabItem Header="Главная">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <!-- Панель для отображения постеров -->
+                    <ItemsControl Grid.Row="1" ItemsSource="{Binding CurrentPosters}">
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <UniformGrid Columns="5" />
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <Image Source="{Binding}" Width="120" Height="180" Margin="5"/>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+
+                    <!-- Элементы управления для пагинации -->
+                    <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Center" Margin="10">
+                        <Button Content="Previous" Command="{Binding PreviousPageCommand}" IsEnabled="{Binding CanGoPrevious}"/>
+                        <TextBlock Text="{Binding CurrentPageDisplay}" VerticalAlignment="Center" Margin="10,0"/>
+                        <Button Content="Next" Command="{Binding NextPageCommand}" IsEnabled="{Binding CanGoNext}"/>
+                    </StackPanel>
+                </Grid>
+            </TabItem>
+
+            <TabItem Header="Рекомендации">
+                <!-- Здесь будет контент для рекомендаций -->
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>
