@@ -1644,11 +1644,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\education\\C#\\Кursovaya\\PRISM\\RecomendMovie\\RecomendMovie.csproj",
+      "projectUniqueName": "D:\\education\\C#\\Кursovaya\\PRISM\\Recomend\\RecomendMovie.csproj",
       "projectName": "RecomendMovie",
-      "projectPath": "D:\\education\\C#\\Кursovaya\\PRISM\\RecomendMovie\\RecomendMovie.csproj",
+      "projectPath": "D:\\education\\C#\\Кursovaya\\PRISM\\Recomend\\RecomendMovie.csproj",
       "packagesPath": "C:\\Users\\artor\\.nuget\\packages\\",
-      "outputPath": "D:\\education\\C#\\Кursovaya\\PRISM\\RecomendMovie\\obj\\",
+      "outputPath": "D:\\education\\C#\\Кursovaya\\PRISM\\Recomend\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "D:\\VisualStudioShared\\NuGetPackages"

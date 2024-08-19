@@ -122,6 +122,8 @@ namespace RecomendMovie.ViewModels
             {
                 _currentPage++;
                 LoadPosters();
+                (NextPageCommand as DelegateCommand)?.RaiseCanExecuteChanged();
+                (PreviousPageCommand as DelegateCommand)?.RaiseCanExecuteChanged();
             }
         }
 
@@ -131,10 +133,12 @@ namespace RecomendMovie.ViewModels
             {
                 _currentPage--;
                 LoadPosters();
+                (NextPageCommand as DelegateCommand)?.RaiseCanExecuteChanged();
+                (PreviousPageCommand as DelegateCommand)?.RaiseCanExecuteChanged();
             }
         }
 
         // Добавлено для тестирования
-        public string TestImageSource => Path.Combine(_postersDirectory, "1000002.jpg");
+        //public string TestImageSource => Path.Combine(_postersDirectory, "1000002.jpg");
     }
 }
