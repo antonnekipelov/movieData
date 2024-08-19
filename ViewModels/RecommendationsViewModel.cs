@@ -139,6 +139,6 @@ namespace RecomendMovie.ViewModels
         }
 
         // Добавлено для тестирования
-        //public string TestImageSource => Path.Combine(_postersDirectory, "1000002.jpg");
+        public string TestImageSource => Path.Combine(_postersDirectory, "1000002.jpg");
     }
 }
