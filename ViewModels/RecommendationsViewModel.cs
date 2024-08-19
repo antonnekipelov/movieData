@@ -4,9 +4,7 @@ using RecomendMovie.Services;
 using System.Collections.ObjectModel;
 using System.IO;
 using System.Windows.Input;
-using System.Linq;
 using System.Windows.Media.Imaging;
-using System.Collections.Generic;
 using RecomendMovie.Models;
 using System.Windows;
 
@@ -61,7 +59,6 @@ namespace RecomendMovie.ViewModels
                         image.CacheOption = BitmapCacheOption.OnLoad;
                         image.EndInit();
                         allPosters.Add(image);
-
                         // Успешная загрузка изображения
                         //MessageBox.Show($"Loaded image: {posterPath}", "Debug Info", MessageBoxButton.OK, MessageBoxImage.Information);
                     }
@@ -137,8 +134,5 @@ namespace RecomendMovie.ViewModels
                 (PreviousPageCommand as DelegateCommand)?.RaiseCanExecuteChanged();
             }
         }
-
-        // Добавлено для тестирования
-        public string TestImageSource => Path.Combine(_postersDirectory, "1000002.jpg");
     }
 }
