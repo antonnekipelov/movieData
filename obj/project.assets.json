@@ -2,6 +2,19 @@
   "version": 3,
   "targets": {
     "net8.0-windows7.0": {
+      "CsvHelper/33.0.1": {
+        "type": "package",
+        "compile": {
+          "lib/net8.0/CsvHelper.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/CsvHelper.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "EntityFramework/6.4.4": {
         "type": "package",
         "dependencies": {
@@ -539,6 +552,34 @@
     }
   },
   "libraries": {
+    "CsvHelper/33.0.1": {
+      "sha512": "fev4lynklAU2A9GVMLtwarkwaanjSYB4wUqO2nOJX5hnzObORzUqVLe+bDYCUyIIRQM4o5Bsq3CcyJR89iMmEQ==",
+      "type": "package",
+      "path": "csvhelper/33.0.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "csvhelper.33.0.1.nupkg.sha512",
+        "csvhelper.nuspec",
+        "lib/net462/CsvHelper.dll",
+        "lib/net462/CsvHelper.xml",
+        "lib/net47/CsvHelper.dll",
+        "lib/net47/CsvHelper.xml",
+        "lib/net48/CsvHelper.dll",
+        "lib/net48/CsvHelper.xml",
+        "lib/net6.0/CsvHelper.dll",
+        "lib/net6.0/CsvHelper.xml",
+        "lib/net7.0/CsvHelper.dll",
+        "lib/net7.0/CsvHelper.xml",
+        "lib/net8.0/CsvHelper.dll",
+        "lib/net8.0/CsvHelper.xml",
+        "lib/netstandard2.0/CsvHelper.dll",
+        "lib/netstandard2.0/CsvHelper.xml",
+        "lib/netstandard2.1/CsvHelper.dll",
+        "lib/netstandard2.1/CsvHelper.xml"
+      ]
+    },
     "EntityFramework/6.4.4": {
       "sha512": "yj1+/4tci7Panu3jKDHYizxwVm0Jvm7b7m057b5h4u8NUHGCR8WIWirBTw+8EptRffwftIWPBeIRGNKD1ewEMQ==",
       "type": "package",
@@ -1630,6 +1671,7 @@
   },
   "projectFileDependencyGroups": {
     "net8.0-windows7.0": [
+      "CsvHelper >= 33.0.1",
       "Microsoft.Xaml.Behaviors.Wpf >= 1.1.122",
       "Prism.Unity >= 8.1.97",
       "Prism.Wpf >= 8.1.97",
@@ -1644,11 +1686,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\education\\C#\\Кursovaya\\PRISM\\Recomend\\RecomendMovie.csproj",
+      "projectUniqueName": "D:\\education\\C#\\Кursovaya\\PRISM\\RecomendMovie\\RecomendMovie.csproj",
       "projectName": "RecomendMovie",
-      "projectPath": "D:\\education\\C#\\Кursovaya\\PRISM\\Recomend\\RecomendMovie.csproj",
+      "projectPath": "D:\\education\\C#\\Кursovaya\\PRISM\\RecomendMovie\\RecomendMovie.csproj",
       "packagesPath": "C:\\Users\\artor\\.nuget\\packages\\",
-      "outputPath": "D:\\education\\C#\\Кursovaya\\PRISM\\Recomend\\obj\\",
+      "outputPath": "D:\\education\\C#\\Кursovaya\\PRISM\\RecomendMovie\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "D:\\VisualStudioShared\\NuGetPackages"
@@ -1687,6 +1729,10 @@
       "net8.0-windows7.0": {
         "targetAlias": "net8.0-windows",
         "dependencies": {
+          "CsvHelper": {
+            "target": "Package",
+            "version": "[33.0.1, )"
+          },
           "Microsoft.Xaml.Behaviors.Wpf": {
             "target": "Package",
             "version": "[1.1.122, )"

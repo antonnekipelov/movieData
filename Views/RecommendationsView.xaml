@@ -20,7 +20,11 @@
                         </ItemsControl.ItemsPanel>
                         <ItemsControl.ItemTemplate>
                             <DataTemplate>
-                                <Image Source="{Binding}" Width="120" Height="180" Margin="5"/>
+                                <Image Source="{Binding}" Width="120" Height="180" Margin="5">
+                                    <Image.InputBindings>
+                                        <MouseBinding Gesture="LeftClick" Command="{Binding DataContext.OpenPosterCommand, RelativeSource={RelativeSource AncestorType=ItemsControl}}" CommandParameter="{Binding}"/>
+                                    </Image.InputBindings>
+                                </Image>
                             </DataTemplate>
                         </ItemsControl.ItemTemplate>
                     </ItemsControl>

@@ -1,14 +1,42 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\education\\C#\\\u041Aursovaya\\PRISM\\Recomend\\",
+  "WorkspaceRootPath": "D:\\education\\C#\\\u041Aursovaya\\PRISM\\RecomendMovie\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{440FB08A-D647-4DCE-972F-CC7CD3531C36}|RecomendMovie.csproj|d:\\education\\c#\\\u043Aursovaya\\prism\\recomend\\viewmodels\\recommendationsviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{440FB08A-D647-4DCE-972F-CC7CD3531C36}|RecomendMovie.csproj|d:\\education\\c#\\\u043Aursovaya\\prism\\recomendmovie\\viewmodels\\recommendationsviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{440FB08A-D647-4DCE-972F-CC7CD3531C36}|RecomendMovie.csproj|solutionrelative:viewmodels\\recommendationsviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{440FB08A-D647-4DCE-972F-CC7CD3531C36}|RecomendMovie.csproj|d:\\education\\c#\\\u043Aursovaya\\prism\\recomend\\views\\recommendationsview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "AbsoluteMoniker": "D:0:0:{440FB08A-D647-4DCE-972F-CC7CD3531C36}|RecomendMovie.csproj|d:\\education\\c#\\\u043Aursovaya\\prism\\recomendmovie\\views\\recommendationsview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{440FB08A-D647-4DCE-972F-CC7CD3531C36}|RecomendMovie.csproj|solutionrelative:views\\recommendationsview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{440FB08A-D647-4DCE-972F-CC7CD3531C36}|RecomendMovie.csproj|d:\\education\\c#\\\u043Aursovaya\\prism\\recomendmovie\\views\\registrationview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{440FB08A-D647-4DCE-972F-CC7CD3531C36}|RecomendMovie.csproj|solutionrelative:views\\registrationview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{440FB08A-D647-4DCE-972F-CC7CD3531C36}|RecomendMovie.csproj|d:\\education\\c#\\\u043Aursovaya\\prism\\recomendmovie\\services\\imovieservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{440FB08A-D647-4DCE-972F-CC7CD3531C36}|RecomendMovie.csproj|solutionrelative:services\\imovieservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{440FB08A-D647-4DCE-972F-CC7CD3531C36}|RecomendMovie.csproj|d:\\education\\c#\\\u043Aursovaya\\prism\\recomendmovie\\services\\movieservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{440FB08A-D647-4DCE-972F-CC7CD3531C36}|RecomendMovie.csproj|solutionrelative:services\\movieservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{440FB08A-D647-4DCE-972F-CC7CD3531C36}|RecomendMovie.csproj|d:\\education\\c#\\\u043Aursovaya\\prism\\recomendmovie\\viewmodels\\moviedetailsviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{440FB08A-D647-4DCE-972F-CC7CD3531C36}|RecomendMovie.csproj|solutionrelative:viewmodels\\moviedetailsviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{440FB08A-D647-4DCE-972F-CC7CD3531C36}|RecomendMovie.csproj|d:\\education\\c#\\\u043Aursovaya\\prism\\recomendmovie\\models\\movie.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{440FB08A-D647-4DCE-972F-CC7CD3531C36}|RecomendMovie.csproj|solutionrelative:models\\movie.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{440FB08A-D647-4DCE-972F-CC7CD3531C36}|RecomendMovie.csproj|d:\\education\\c#\\\u043Aursovaya\\prism\\recomendmovie\\app.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{440FB08A-D647-4DCE-972F-CC7CD3531C36}|RecomendMovie.csproj|solutionrelative:app.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{440FB08A-D647-4DCE-972F-CC7CD3531C36}|RecomendMovie.csproj|d:\\education\\c#\\\u043Aursovaya\\prism\\recomendmovie\\views\\moviedetailsview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{440FB08A-D647-4DCE-972F-CC7CD3531C36}|RecomendMovie.csproj|solutionrelative:views\\moviedetailsview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,31 +46,113 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "RecommendationsView.xaml",
-              "DocumentMoniker": "D:\\education\\C#\\\u041Aursovaya\\PRISM\\Recomend\\Views\\RecommendationsView.xaml",
-              "RelativeDocumentMoniker": "Views\\RecommendationsView.xaml",
-              "ToolTip": "D:\\education\\C#\\\u041Aursovaya\\PRISM\\Recomend\\Views\\RecommendationsView.xaml",
-              "RelativeToolTip": "Views\\RecommendationsView.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-08-18T08:11:16.862Z"
-            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "RecommendationsViewModel.cs",
-              "DocumentMoniker": "D:\\education\\C#\\\u041Aursovaya\\PRISM\\Recomend\\ViewModels\\RecommendationsViewModel.cs",
+              "DocumentMoniker": "D:\\education\\C#\\\u041Aursovaya\\PRISM\\RecomendMovie\\ViewModels\\RecommendationsViewModel.cs",
               "RelativeDocumentMoniker": "ViewModels\\RecommendationsViewModel.cs",
-              "ToolTip": "D:\\education\\C#\\\u041Aursovaya\\PRISM\\Recomend\\ViewModels\\RecommendationsViewModel.cs",
+              "ToolTip": "D:\\education\\C#\\\u041Aursovaya\\PRISM\\RecomendMovie\\ViewModels\\RecommendationsViewModel.cs",
               "RelativeToolTip": "ViewModels\\RecommendationsViewModel.cs",
-              "ViewState": "AQIAAGQAAAAAAAAAAADwvwUAAAAbAAAA",
+              "ViewState": "AQIAAF4AAAAAAAAAAAASwGMAAAAwAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-18T08:16:02.301Z",
+              "WhenOpened": "2024-08-21T09:06:35.768Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "RecommendationsView.xaml",
+              "DocumentMoniker": "D:\\education\\C#\\\u041Aursovaya\\PRISM\\RecomendMovie\\Views\\RecommendationsView.xaml",
+              "RelativeDocumentMoniker": "Views\\RecommendationsView.xaml",
+              "ToolTip": "D:\\education\\C#\\\u041Aursovaya\\PRISM\\RecomendMovie\\Views\\RecommendationsView.xaml",
+              "RelativeToolTip": "Views\\RecommendationsView.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-08-21T09:22:34.756Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "IMovieService.cs",
+              "DocumentMoniker": "D:\\education\\C#\\\u041Aursovaya\\PRISM\\RecomendMovie\\Services\\IMovieService.cs",
+              "RelativeDocumentMoniker": "Services\\IMovieService.cs",
+              "ToolTip": "D:\\education\\C#\\\u041Aursovaya\\PRISM\\RecomendMovie\\Services\\IMovieService.cs",
+              "RelativeToolTip": "Services\\IMovieService.cs",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAawAsAAAA3AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-21T10:26:13.294Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Movie.cs",
+              "DocumentMoniker": "D:\\education\\C#\\\u041Aursovaya\\PRISM\\RecomendMovie\\Models\\Movie.cs",
+              "RelativeDocumentMoniker": "Models\\Movie.cs",
+              "ToolTip": "D:\\education\\C#\\\u041Aursovaya\\PRISM\\RecomendMovie\\Models\\Movie.cs",
+              "RelativeToolTip": "Models\\Movie.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAGAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-21T09:54:19.986Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "MovieDetailsViewModel.cs",
+              "DocumentMoniker": "D:\\education\\C#\\\u041Aursovaya\\PRISM\\RecomendMovie\\ViewModels\\MovieDetailsViewModel.cs",
+              "RelativeDocumentMoniker": "ViewModels\\MovieDetailsViewModel.cs",
+              "ToolTip": "D:\\education\\C#\\\u041Aursovaya\\PRISM\\RecomendMovie\\ViewModels\\MovieDetailsViewModel.cs",
+              "RelativeToolTip": "ViewModels\\MovieDetailsViewModel.cs",
+              "ViewState": "AQIAABMAAAAAAAAAAAASwBsAAAAKAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-21T09:40:45.311Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "App.xaml.cs",
+              "DocumentMoniker": "D:\\education\\C#\\\u041Aursovaya\\PRISM\\RecomendMovie\\App.xaml.cs",
+              "RelativeDocumentMoniker": "App.xaml.cs",
+              "ToolTip": "D:\\education\\C#\\\u041Aursovaya\\PRISM\\RecomendMovie\\App.xaml.cs",
+              "RelativeToolTip": "App.xaml.cs",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAABEAAABbAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-21T10:26:58.833Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "RegistrationView.xaml",
+              "DocumentMoniker": "D:\\education\\C#\\\u041Aursovaya\\PRISM\\RecomendMovie\\Views\\RegistrationView.xaml",
+              "RelativeDocumentMoniker": "Views\\RegistrationView.xaml",
+              "ToolTip": "D:\\education\\C#\\\u041Aursovaya\\PRISM\\RecomendMovie\\Views\\RegistrationView.xaml",
+              "RelativeToolTip": "Views\\RegistrationView.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-08-21T09:22:31.046Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "MovieService.cs",
+              "DocumentMoniker": "D:\\education\\C#\\\u041Aursovaya\\PRISM\\RecomendMovie\\Services\\MovieService.cs",
+              "RelativeDocumentMoniker": "Services\\MovieService.cs",
+              "ToolTip": "D:\\education\\C#\\\u041Aursovaya\\PRISM\\RecomendMovie\\Services\\MovieService.cs",
+              "RelativeToolTip": "Services\\MovieService.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAuwAsAAAA+AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-21T10:12:34.525Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "MovieDetailsView.xaml",
+              "DocumentMoniker": "D:\\education\\C#\\\u041Aursovaya\\PRISM\\RecomendMovie\\Views\\MovieDetailsView.xaml",
+              "RelativeDocumentMoniker": "Views\\MovieDetailsView.xaml",
+              "ToolTip": "D:\\education\\C#\\\u041Aursovaya\\PRISM\\RecomendMovie\\Views\\MovieDetailsView.xaml",
+              "RelativeToolTip": "Views\\MovieDetailsView.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-08-21T09:37:04.201Z"
             }
           ]
         }

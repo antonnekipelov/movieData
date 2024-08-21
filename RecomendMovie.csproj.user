@@ -7,6 +7,9 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="Views\MovieDetailsView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Views\RecommendationsView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -16,6 +19,9 @@
   </ItemGroup>
   <ItemGroup>
     <Page Update="Resources\Styles.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\MovieDetailsView.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\RecommendationsView.xaml">

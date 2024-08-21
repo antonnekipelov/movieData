@@ -1,28 +1,31 @@
-﻿using RecomendMovie.Models;
+﻿using System.Collections.Generic;
+using System.Globalization;
+using System.IO;
+using CsvHelper;
+using CsvHelper.Configuration;
+using RecomendMovie.Models;
+
 namespace RecomendMovie.Services
 {
     public class MovieService : IMovieService
     {
-        public IEnumerable<Movie> GetMovies()
+        public IEnumerable<Movie> GetMovies(string csvFilePath)
         {
-            // Здесь можно заменить на реальное получение данных
-            return new List<Movie>
-            {
-                new Movie { Id = 1, Title = "Inception", Genre = "Sci-Fi", Rating = 8.8 },
-                new Movie { Id = 2, Title = "The Matrix", Genre = "Action", Rating = 8.7 }
-                // Добавьте больше фильмов
-            };
-        }
+            var movies = new List<Movie>();
 
-        public IEnumerable<Recommendation> GetRecommendations(Movie movie)
-        {
-            // Простая логика для генерации рекомендаций
-            return new List<Recommendation>
+            using (var reader = new StreamReader(csvFilePath))
+            using (var csv = new CsvReader(reader, new CsvConfiguration(CultureInfo.InvariantCulture)
             {
-                new Recommendation { Movie = new Movie { Title = "Interstellar", Genre = "Sci-Fi", Rating = 8.6 }, Reason = "Similar genre" },
-                new Recommendation { Movie = new Movie { Title = "The Dark Knight", Genre = "Action", Rating = 9.0 }, Reason = "Similar genre" }
-                // Добавьте больше рекомендаций
-            };
+                BadDataFound = context => { /* Обработка некорректных данных, если нужно */ },
+                HeaderValidated = null,
+                MissingFieldFound = null
+            }))
+            {
+                // Используем стандартный маппинг на основе заголовков
+                movies = csv.GetRecords<Movie>().ToList();
+            }
+
+            return movies;
         }
     }
 }

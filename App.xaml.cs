@@ -15,6 +15,7 @@ namespace RecomendMovie
             containerRegistry.RegisterSingleton<IMovieService, MovieService>();
             containerRegistry.RegisterForNavigation<RecommendationsView, RecommendationsViewModel>();
             containerRegistry.RegisterForNavigation<RegistrationView, RegistrationViewModel>();
+            containerRegistry.RegisterForNavigation<MovieDetailsView, MovieDetailsViewModel>();
         }
 
         protected override Window CreateShell()

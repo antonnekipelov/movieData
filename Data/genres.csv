@@ -1,0 +1,276 @@
+id,genre
+1000001,Comedy
+1000001,Adventure
+1000002,Comedy
+1000002,Thriller
+1000002,Drama
+1000003,Science Fiction
+1000003,Adventure
+1000003,Comedy
+1000003,Action
+1000004,Drama
+1000005,Drama
+1000005,Comedy
+1000005,Music
+1000005,Romance
+1000006,Drama
+1000006,History
+1000007,Science Fiction
+1000007,Drama
+1000007,Adventure
+1000008,Crime
+1000008,Drama
+1000008,Thriller
+1000009,Science Fiction
+1000009,Adventure
+1000010,Crime
+1000010,Thriller
+1000011,Adventure
+1000011,Animation
+1000011,Science Fiction
+1000011,Action
+1000012,Drama
+1000012,Music
+1000013,Crime
+1000013,Mystery
+1000013,Thriller
+1000014,Horror
+1000014,Mystery
+1000014,Thriller
+1000015,Mystery
+1000015,Comedy
+1000015,Crime
+1000016,Mystery
+1000016,Drama
+1000016,Horror
+1000017,Action
+1000017,Drama
+1000017,Thriller
+1000017,Crime
+1000018,Action
+1000018,Adventure
+1000018,Science Fiction
+1000019,Comedy
+1000019,Drama
+1000019,Thriller
+1000020,Romance
+1000020,Science Fiction
+1000020,Comedy
+1000021,Animation
+1000021,Adventure
+1000021,Science Fiction
+1000021,Action
+1000022,Comedy
+1000022,Drama
+1000023,Comedy
+1000023,Drama
+1000024,Drama
+1000024,Comedy
+1000025,Comedy
+1000025,Drama
+1000025,Crime
+1000026,Crime
+1000026,Thriller
+1000026,Horror
+1000026,Drama
+1000027,Action
+1000027,Adventure
+1000027,Science Fiction
+1000028,Adventure
+1000028,Science Fiction
+1000029,Science Fiction
+1000029,Romance
+1000029,Drama
+1000030,Family
+1000030,Fantasy
+1000030,Animation
+1000031,Comedy
+1000031,Thriller
+1000031,Horror
+1000032,Drama
+1000032,Thriller
+1000032,Mystery
+1000033,Drama
+1000033,Thriller
+1000033,Comedy
+1000034,Horror
+1000034,Thriller
+1000035,Drama
+1000035,Thriller
+1000035,Horror
+1000036,Drama
+1000036,Thriller
+1000036,War
+1000037,Romance
+1000037,Drama
+1000038,Drama
+1000038,Comedy
+1000038,Romance
+1000039,Crime
+1000039,Mystery
+1000039,Thriller
+1000040,Action
+1000040,Science Fiction
+1000040,Adventure
+1000041,Comedy
+1000041,Crime
+1000041,Mystery
+1000042,Horror
+1000042,Crime
+1000042,Thriller
+1000042,Drama
+1000043,Science Fiction
+1000043,Action
+1000043,Adventure
+1000044,Crime
+1000044,Action
+1000045,Crime
+1000045,Action
+1000046,Crime
+1000046,Drama
+1000047,Drama
+1000047,Western
+1000048,Mystery
+1000048,Drama
+1000048,Thriller
+1000049,Romance
+1000049,Drama
+1000050,Thriller
+1000050,Horror
+1000050,Mystery
+1000051,Drama
+1000052,Science Fiction
+1000052,Drama
+1000052,Romance
+1000053,Animation
+1000053,Family
+1000053,Comedy
+1000053,Fantasy
+1000054,Comedy
+1000054,Romance
+1000054,Drama
+1000055,Mystery
+1000055,Science Fiction
+1000055,Horror
+1000056,Comedy
+1000056,Romance
+1000056,Action
+1000057,Science Fiction
+1000057,Action
+1000058,Family
+1000058,Adventure
+1000058,Comedy
+1000058,Animation
+1000059,Drama
+1000059,Crime
+1000060,Drama
+1000061,War
+1000061,Drama
+1000061,Comedy
+1000062,Adventure
+1000062,Action
+1000062,Science Fiction
+1000063,Adventure
+1000063,Science Fiction
+1000063,Action
+1000064,Science Fiction
+1000064,Mystery
+1000064,Drama
+1000065,Science Fiction
+1000065,Drama
+1000066,Drama
+1000067,Fantasy
+1000067,Adventure
+1000067,Action
+1000068,Crime
+1000068,Drama
+1000069,Drama
+1000069,Romance
+1000070,Drama
+1000071,Adventure
+1000071,Animation
+1000071,Music
+1000071,Family
+1000072,Adventure
+1000072,Science Fiction
+1000072,Action
+1000073,Science Fiction
+1000073,Comedy
+1000073,Drama
+1000074,Drama
+1000074,Romance
+1000075,Drama
+1000075,Romance
+1000076,Thriller
+1000076,Drama
+1000076,Crime
+1000077,Fantasy
+1000077,Mystery
+1000077,Drama
+1000078,Romance
+1000078,Comedy
+1000078,Drama
+1000079,Comedy
+1000079,Family
+1000079,Animation
+1000079,Adventure
+1000079,Drama
+1000080,Mystery
+1000080,Crime
+1000080,Thriller
+1000081,Animation
+1000081,Adventure
+1000081,Family
+1000081,Comedy
+1000082,Adventure
+1000082,Action
+1000082,Science Fiction
+1000083,Action
+1000083,Adventure
+1000083,Science Fiction
+1000084,Action
+1000084,Adventure
+1000084,Science Fiction
+1000085,Action
+1000085,Drama
+1000085,Adventure
+1000085,Science Fiction
+1000086,Thriller
+1000086,Horror
+1000087,Comedy
+1000087,Drama
+1000088,Action
+1000088,Drama
+1000089,Family
+1000089,Animation
+1000089,Comedy
+1000089,Fantasy
+1000090,Comedy
+1000090,Science Fiction
+1000090,Adventure
+1000091,Drama
+1000091,Crime
+1000092,Horror
+1000092,Drama
+1000092,Thriller
+1000092,Fantasy
+1000093,Fantasy
+1000093,Science Fiction
+1000093,Adventure
+1000094,Fantasy
+1000094,Adventure
+1000094,Animation
+1000095,Drama
+1000095,Comedy
+1000096,Action
+1000096,Comedy
+1000096,Adventure
+1000097,Fantasy
+1000097,Adventure
+1000098,Animation
+1000098,Science Fiction
+1000098,Family
+1000099,Drama
+1000100,Adventure
+1000100,Action
+1000100,Science Fiction

@@ -5,7 +5,7 @@ using System.Collections.ObjectModel;
 using System.IO;
 using System.Windows.Input;
 using System.Windows.Media.Imaging;
-using RecomendMovie.Models;
+using RecomendMovie.Views;
 using System.Windows;
 
 namespace RecomendMovie.ViewModels
@@ -14,41 +14,38 @@ namespace RecomendMovie.ViewModels
     {
         private readonly IMovieService _movieService;
         private const int PostersPerPage = 20;
-        private readonly string _postersDirectory;
+        private string _postersDirectory;
         private int _currentPage = 1;
         private ObservableCollection<BitmapImage> _currentPosters;
 
         public RecommendationsViewModel(IMovieService movieService)
         {
             _movieService = movieService;
-
-            // Путь к папке с изображениями относительно корня проекта
-            // Получаем корневую директорию проекта
-            string projectDirectory = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.FullName;
-            MessageBox.Show(projectDirectory);
-
-            // Формируем путь к папке с изображениями
-            _postersDirectory = Path.Combine(projectDirectory, "Data", "posters");
-
-            LoadMovies();
-            LoadPosters();
+            LoadPostersCommand = new DelegateCommand(LoadPosters);
             NextPageCommand = new DelegateCommand(OnNextPage, CanGoNext);
             PreviousPageCommand = new DelegateCommand(OnPreviousPage, CanGoPrevious);
+            OpenPosterCommand = new DelegateCommand<BitmapImage>(OpenPoster);
+
+            // Вызов команды при инициализации
+            LoadPostersCommand.Execute(null);
         }
 
-        private void LoadMovies()
+        /*private void LoadMovies()
         {
             Movies = new ObservableCollection<Movie>(_movieService.GetMovies());
-        }
+        }*/
 
         private void LoadPosters()
         {
+            string projectDirectory = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.FullName;
+            _postersDirectory = Path.Combine(projectDirectory, "Data", "posters");
+            MessageBox.Show(_postersDirectory);
             var allPosters = new List<BitmapImage>();
-
+            string posterPath = "";
             for (int i = 1000001; i <= 1000100; i++)
             {
-                string posterPath = Path.Combine(_postersDirectory, $"{i}.jpg");
-
+                posterPath = Path.Combine(_postersDirectory, $"{i}.jpg");
+                //MessageBox.Show(posterPath);
                 if (File.Exists(posterPath))
                 {
                     try
@@ -59,8 +56,6 @@ namespace RecomendMovie.ViewModels
                         image.CacheOption = BitmapCacheOption.OnLoad;
                         image.EndInit();
                         allPosters.Add(image);
-                        // Успешная загрузка изображения
-                        //MessageBox.Show($"Loaded image: {posterPath}", "Debug Info", MessageBoxButton.OK, MessageBoxImage.Information);
                     }
                     catch (Exception ex)
                     {
@@ -104,7 +99,8 @@ namespace RecomendMovie.ViewModels
 
         public ICommand NextPageCommand { get; }
         public ICommand PreviousPageCommand { get; }
-
+        public ICommand LoadPostersCommand { get; }
+        public ICommand OpenPosterCommand { get; }
         public string CurrentPageDisplay => $"Page {_currentPage} of {TotalPages}";
 
         private int TotalPages { get; set; }
@@ -123,7 +119,6 @@ namespace RecomendMovie.ViewModels
                 (PreviousPageCommand as DelegateCommand)?.RaiseCanExecuteChanged();
             }
         }
-
         private void OnPreviousPage()
         {
             if (CanGoPrevious())
@@ -133,6 +128,12 @@ namespace RecomendMovie.ViewModels
                 (NextPageCommand as DelegateCommand)?.RaiseCanExecuteChanged();
                 (PreviousPageCommand as DelegateCommand)?.RaiseCanExecuteChanged();
             }
+        }
+        private void OpenPoster(BitmapImage poster)
+        {
+            var modalWindow = new MovieDetailsView();  // Создаем экземпляр модального окна
+            modalWindow.Owner = Application.Current.MainWindow; // Устанавливаем владельцем текущее главное окно
+            modalWindow.ShowDialog();  // Открываем модальное окно
         }
     }
 }

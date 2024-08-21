@@ -9,7 +9,7 @@ namespace RecomendMovie.Services
 {
     public interface IMovieService
     {
-        IEnumerable<Movie> GetMovies();
-        IEnumerable<Recommendation> GetRecommendations(Movie movie);
+        IEnumerable<Movie> GetMovies(string csvFilePath);
+        //IEnumerable<Recommendation> GetRecommendations(Movie movie);
     }
 }

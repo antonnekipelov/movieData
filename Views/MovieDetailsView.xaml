@@ -1,0 +1,45 @@
+﻿<Window x:Class="RecomendMovie.Views.MovieDetailsView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             d:DesignHeight="400" d:DesignWidth="600">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- Название фильма -->
+        <TextBlock Text="{Binding Name}" FontSize="24" FontWeight="Bold" Margin="0,0,0,10" Grid.Row="0"/>
+
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <!-- Постер фильма -->
+            <Image Source="{Binding Poster}" Width="150" Height="220" Margin="0,0,10,0" />
+
+            <!-- Информация о фильме -->
+            <StackPanel Grid.Column="1">
+                <TextBlock Text="Год релиза:" FontWeight="Bold" />
+                <TextBlock Text="{Binding Date}" Margin="0,0,0,10"/>
+
+                <TextBlock Text="Теглайн:" FontWeight="Bold" />
+                <TextBlock Text="{Binding Tagline}" Margin="0,0,0,10"/>
+
+                <TextBlock Text="Описание:" FontWeight="Bold" />
+                <TextBlock Text="{Binding Description}" TextWrapping="Wrap" Margin="0,0,0,10"/>
+
+                <TextBlock Text="Продолжительность:" FontWeight="Bold" />
+                <TextBlock Text="{Binding Minute}" Margin="0,0,0,10"/>
+
+                <TextBlock Text="Рейтинг:" FontWeight="Bold" />
+                <TextBlock Text="{Binding Rating}" Margin="0,0,0,10"/>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Window>

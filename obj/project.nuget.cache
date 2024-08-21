@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "VtF1hq3HC2s=",
+  "dgSpecHash": "4pZqCJ703LY=",
   "success": true,
-  "projectFilePath": "D:\\education\\C#\\Кursovaya\\PRISM\\Recomend\\RecomendMovie.csproj",
+  "projectFilePath": "D:\\education\\C#\\Кursovaya\\PRISM\\RecomendMovie\\RecomendMovie.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\artor\\.nuget\\packages\\csvhelper\\33.0.1\\csvhelper.33.0.1.nupkg.sha512",
     "C:\\Users\\artor\\.nuget\\packages\\entityframework\\6.4.4\\entityframework.6.4.4.nupkg.sha512",
     "C:\\Users\\artor\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
     "C:\\Users\\artor\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
