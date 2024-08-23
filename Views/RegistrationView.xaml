@@ -4,23 +4,25 @@
         xmlns:ap="clr-namespace:RecomendMovie.AttachedProperties"
         xmlns:local="clr-namespace:RecomendMovie.Views"
         Title="Registration"
-        WindowStartupLocation="CenterScreen">
+        Style="{StaticResource RegistrationWindowStyle}">
     <Grid>
-        <StackPanel Margin="20">
-            <StackPanel Margin="10">
+        <StackPanel Style="{StaticResource StackPanelMargin20Style}">
+            <StackPanel>
                 <TextBlock Text="Логин" Style="{StaticResource DefaultTextBlockStyle}" />
                 <TextBox Text="{Binding Username, UpdateSourceTrigger=PropertyChanged}"
                          Style="{StaticResource CommonTextBoxStyle}" />
             </StackPanel>
 
-            <StackPanel Margin="10">
+            <StackPanel>
                 <TextBlock Text="Пароль" Style="{StaticResource DefaultTextBlockStyle}" />
                 <PasswordBox ap:PasswordBoxHelper.Password="{Binding Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                             Style="{StaticResource CommonTextBoxStyle}" />
+                             Style="{StaticResource CommonPasswordBoxStyle}" />
             </StackPanel>
 
-            <Button Content="Зарегистрироваться" Command="{Binding RegisterCommand}" Margin="10"/>
-            <Button Content="Авторизоваться" Command="{Binding LoginCommand}" Margin="10"/>
+            <Button Content="Зарегистрироваться" Command="{Binding RegisterCommand}"
+                    Style="{StaticResource CommonButtonStyle}" />
+            <Button Content="Авторизоваться" Command="{Binding LoginCommand}"
+                    Style="{StaticResource CommonButtonStyle}" />
         </StackPanel>
     </Grid>
 </Window>

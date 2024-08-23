@@ -11,21 +11,27 @@ namespace RecomendMovie.Services
     {
         public IEnumerable<Movie> GetMovies(string csvFilePath)
         {
-            var movies = new List<Movie>();
-
+            if (string.IsNullOrEmpty(csvFilePath))
+                throw new ArgumentNullException(nameof(csvFilePath), "CSV file path cannot be null or empty.");
+            //var movies = new List<Movie>();
+            if (!File.Exists(csvFilePath))
+                throw new FileNotFoundException("CSV file not found", csvFilePath);
             using (var reader = new StreamReader(csvFilePath))
             using (var csv = new CsvReader(reader, new CsvConfiguration(CultureInfo.InvariantCulture)
             {
-                BadDataFound = context => { /* Обработка некорректных данных, если нужно */ },
+                BadDataFound = context => { },
                 HeaderValidated = null,
                 MissingFieldFound = null
             }))
             {
-                // Используем стандартный маппинг на основе заголовков
-                movies = csv.GetRecords<Movie>().ToList();
+                var movies = csv.GetRecords<Movie>().ToList();
+                return movies;
             }
-
-            return movies;
+        }
+        public Movie GetMovieById(int movieId, string csvFilePath)
+        {
+            var movies = GetMovies(csvFilePath);
+            return movies.FirstOrDefault(movie => movie.Id == movieId);
         }
     }
 }

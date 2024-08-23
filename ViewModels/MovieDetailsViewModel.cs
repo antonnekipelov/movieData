@@ -1,15 +1,19 @@
 ﻿using Prism.Mvvm;
 using RecomendMovie.Models;
+using RecomendMovie.Services;
+using System.ComponentModel;
+using System.Windows.Media.Imaging;
 
 namespace RecomendMovie.ViewModels
 {
-    public class MovieDetailsViewModel : BindableBase
+    public class MovieDetailsViewModel : INotifyPropertyChanged
     {
         private readonly Movie _movie;
 
-        public MovieDetailsViewModel(Movie movie)
+        public MovieDetailsViewModel(int movieId, IMovieService movieService, string csvFilePath)
         {
-            _movie = movie;
+            _movie = movieService.GetMovieById(movieId, csvFilePath);
+            Poster = new BitmapImage(new Uri("Data/posters/" + $"{movieId}.jpg", UriKind.RelativeOrAbsolute));
         }
 
         public string Name => _movie.Name;
@@ -23,8 +27,21 @@ namespace RecomendMovie.ViewModels
         public int Minute => _movie.Minute;
 
         public double Rating => _movie.Rating;
+        private BitmapImage _poster;
 
-        // Здесь предполагается, что вы храните путь к постеру как часть модели Movie
-        //public string Poster => _movie.PosterPath;
+        public BitmapImage Poster
+        {
+            get => _poster;
+            set
+            {
+                _poster = value;
+                OnPropertyChanged(nameof(Poster));
+            }
+        }
+        public event PropertyChangedEventHandler PropertyChanged;
+        protected void OnPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
     }
 }

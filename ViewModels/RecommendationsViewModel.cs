@@ -16,30 +16,27 @@ namespace RecomendMovie.ViewModels
         private const int PostersPerPage = 20;
         private string _postersDirectory;
         private int _currentPage = 1;
+        private string _moviesCsvPath;
+        private string projectDirectory;
         private ObservableCollection<BitmapImage> _currentPosters;
 
         public RecommendationsViewModel(IMovieService movieService)
         {
             _movieService = movieService;
+            projectDirectory = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.FullName;
+            _moviesCsvPath = Path.Combine(projectDirectory, "Data", "movies.csv");
             LoadPostersCommand = new DelegateCommand(LoadPosters);
-            NextPageCommand = new DelegateCommand(OnNextPage, CanGoNext);
-            PreviousPageCommand = new DelegateCommand(OnPreviousPage, CanGoPrevious);
-            OpenPosterCommand = new DelegateCommand<BitmapImage>(OpenPoster);
-
+            PosterClickCommand = new DelegateCommand<BitmapImage>(OnPosterClick);
+            NextPageCommand = new DelegateCommand(OnNextPage, () => CanGoNext);
+            PreviousPageCommand = new DelegateCommand(OnPreviousPage, () => CanGoPrevious);
+           
             // Вызов команды при инициализации
             LoadPostersCommand.Execute(null);
         }
-
-        /*private void LoadMovies()
-        {
-            Movies = new ObservableCollection<Movie>(_movieService.GetMovies());
-        }*/
-
         private void LoadPosters()
         {
-            string projectDirectory = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.FullName;
             _postersDirectory = Path.Combine(projectDirectory, "Data", "posters");
-            MessageBox.Show(_postersDirectory);
+            //MessageBox.Show(_postersDirectory);
             var allPosters = new List<BitmapImage>();
             string posterPath = "";
             for (int i = 1000001; i <= 1000100; i++)
@@ -62,11 +59,9 @@ namespace RecomendMovie.ViewModels
                         MessageBox.Show($"Error loading image {i}: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                     }
                 }
-                else
-                {
+                /*else
                     // Файл не найден
-                    MessageBox.Show($"File not found: {posterPath}", "Debug Info", MessageBoxButton.OK, MessageBoxImage.Warning);
-                }
+                    MessageBox.Show($"File not found: {posterPath}", "Debug Info", MessageBoxButton.OK, MessageBoxImage.Warning);*/
             }
 
             // Обновляем CurrentPosters только если есть изображения
@@ -84,11 +79,17 @@ namespace RecomendMovie.ViewModels
                 RaisePropertyChanged(nameof(CanGoPrevious));
             }
             else
-            {
                 MessageBox.Show("No posters loaded!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+        }
+        private void OnPosterClick(BitmapImage poster)
+        {
+            // Получаем ID фильма из имени файла постера
+            var fileName = System.IO.Path.GetFileNameWithoutExtension(poster.UriSource.LocalPath);
+            if (int.TryParse(fileName, out int movieId))
+            {
+                OpenMovieDetails(movieId);
             }
         }
-
         public ObservableCollection<Movie> Movies { get; private set; }
 
         public ObservableCollection<BitmapImage> CurrentPosters
@@ -101,17 +102,24 @@ namespace RecomendMovie.ViewModels
         public ICommand PreviousPageCommand { get; }
         public ICommand LoadPostersCommand { get; }
         public ICommand OpenPosterCommand { get; }
+        public ICommand PosterClickCommand { get; }
         public string CurrentPageDisplay => $"Page {_currentPage} of {TotalPages}";
 
         private int TotalPages { get; set; }
 
-        public bool CanGoNext() => _currentPage < TotalPages;
+        public bool CanGoNext
+        {
+            get { return _currentPage < TotalPages; }
+        }
 
-        public bool CanGoPrevious() => _currentPage > 1;
+        public bool CanGoPrevious
+        {
+            get { return _currentPage > 1; }
+        }
 
         private void OnNextPage()
         {
-            if (CanGoNext())
+            if (CanGoNext)
             {
                 _currentPage++;
                 LoadPosters();
@@ -121,7 +129,7 @@ namespace RecomendMovie.ViewModels
         }
         private void OnPreviousPage()
         {
-            if (CanGoPrevious())
+            if (CanGoPrevious)
             {
                 _currentPage--;
                 LoadPosters();
@@ -129,11 +137,14 @@ namespace RecomendMovie.ViewModels
                 (PreviousPageCommand as DelegateCommand)?.RaiseCanExecuteChanged();
             }
         }
-        private void OpenPoster(BitmapImage poster)
+        private void OpenMovieDetails(int movieId)
         {
-            var modalWindow = new MovieDetailsView();  // Создаем экземпляр модального окна
-            modalWindow.Owner = Application.Current.MainWindow; // Устанавливаем владельцем текущее главное окно
-            modalWindow.ShowDialog();  // Открываем модальное окно
+            var movieDetailsViewModel = new MovieDetailsViewModel(movieId, _movieService, _moviesCsvPath);
+            var movieDetailsView = new MovieDetailsView
+            {
+                DataContext = movieDetailsViewModel
+            };
+            movieDetailsView.ShowDialog();
         }
     }
 }

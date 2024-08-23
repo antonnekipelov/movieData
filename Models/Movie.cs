@@ -1,11 +1,26 @@
-﻿public class Movie
+﻿using CsvHelper.Configuration.Attributes;
+
+public class Movie
 {
+    [Name("id")]
     public int Id { get; set; }
+
+    [Name("name")]
     public string Name { get; set; }
-    public int Date { get; set; }  // Год релиза
+
+    [Name("date")]
+    public int Date { get; set; }
+
+    [Name("tagline")]
     public string Tagline { get; set; }
+
+    [Name("description")]
     public string Description { get; set; }
-    public int Minute { get; set; }  // Длительность в минутах
-    public double Rating { get; set; }  // Рейтинг по пятибалльной шкале
-    //public string PosterPath { get; set; }
+
+    [Name("minute")]
+    public int Minute { get; set; }
+
+    [Name("rating")]
+    public double Rating { get; set; }
 }
+

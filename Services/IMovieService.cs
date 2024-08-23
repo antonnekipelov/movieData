@@ -11,5 +11,6 @@ namespace RecomendMovie.Services
     {
         IEnumerable<Movie> GetMovies(string csvFilePath);
         //IEnumerable<Recommendation> GetRecommendations(Movie movie);
+        Movie GetMovieById(int id, string csvFilePath);
     }
 }
