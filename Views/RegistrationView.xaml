@@ -4,9 +4,10 @@
         xmlns:ap="clr-namespace:RecomendMovie.AttachedProperties"
         xmlns:local="clr-namespace:RecomendMovie.Views"
         Title="Registration"
-        Style="{StaticResource RegistrationWindowStyle}">
+        Style="{StaticResource RegistrationWindowStyle}"
+        WindowStartupLocation="CenterScreen" Cursor="">
     <Grid>
-        <StackPanel Style="{StaticResource StackPanelMargin20Style}">
+        <StackPanel>
             <StackPanel>
                 <TextBlock Text="Логин" Style="{StaticResource DefaultTextBlockStyle}" />
                 <TextBox Text="{Binding Username, UpdateSourceTrigger=PropertyChanged}"

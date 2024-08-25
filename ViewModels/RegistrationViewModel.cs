@@ -10,9 +10,9 @@ namespace RecomendMovie.ViewModels
 {
     public class RegistrationViewModel : BindableBase
     {
-        private readonly IUserService _userService;
+        private readonly UserService _userService;
 
-        public RegistrationViewModel(IUserService userService)
+        public RegistrationViewModel(UserService userService)
         {
             _userService = userService;
             RegisterCommand = new DelegateCommand(OnRegister);
@@ -21,21 +21,25 @@ namespace RecomendMovie.ViewModels
 
         private void OnRegister()
         {
-            if (_userService.Authenticate(Username, Password) != null)
+            if (string.IsNullOrWhiteSpace(Username) || string.IsNullOrWhiteSpace(Password))
             {
-                MessageBox.Show("Пользователь с таким логином уже существует.", "Ошибка регистрации", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("Пожалуйста, введите логин и пароль.", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
-
             var user = _userService.Register(Username, Password);
             if (user != null)
                 OpenRecommendationsView();
             else
-                MessageBox.Show("Не удалось зарегистрировать пользователя.", "Ошибка регистрации", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("Пользователь с таким логином уже существует.", "Ошибка регистрации", MessageBoxButton.OK, MessageBoxImage.Error);
         }
 
         private void OnLogin()
         {
+            if (string.IsNullOrWhiteSpace(Username) || string.IsNullOrWhiteSpace(Password))
+            {
+                MessageBox.Show("Пожалуйста, введите логин и пароль.", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
             var user = _userService.Authenticate(Username, Password);
             if (user != null)
                 OpenRecommendationsView();
@@ -55,14 +59,14 @@ namespace RecomendMovie.ViewModels
             Application.Current.MainWindow = recommendationsWindow;
             registrationWindow.Close();
         }
-        private string _username = "Herina";
+        private string _username = "Wasane";
         public string Username
         {
             get => _username;
             set => SetProperty(ref _username, value);
         }
 
-        private string _password = "a-I3fAa6";
+        private string _password = "_D9Ag]VC";
         public string Password
         {
             get => _password;

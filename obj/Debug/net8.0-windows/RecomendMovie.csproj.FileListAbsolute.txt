@@ -144,3 +144,4 @@ D:\education\C#\Кursovaya\PRISM\RecomendMovie\obj\Debug\net8.0-windows\refint\R
 D:\education\C#\Кursovaya\PRISM\RecomendMovie\obj\Debug\net8.0-windows\RecomendMovie.pdb
 D:\education\C#\Кursovaya\PRISM\RecomendMovie\obj\Debug\net8.0-windows\RecomendMovie.genruntimeconfig.cache
 D:\education\C#\Кursovaya\PRISM\RecomendMovie\obj\Debug\net8.0-windows\ref\RecomendMovie.dll
+D:\education\C#\Кursovaya\PRISM\RecomendMovie\bin\Debug\net8.0-windows\Newtonsoft.Json.dll

@@ -12,19 +12,16 @@ namespace RecomendMovie.ViewModels
 {
     public class RecommendationsViewModel : BindableBase
     {
-        private readonly IMovieService _movieService;
+        
         private const int PostersPerPage = 20;
         private string _postersDirectory;
         private int _currentPage = 1;
-        private string _moviesCsvPath;
-        private string projectDirectory;
+        private string _projectDirectory;
         private ObservableCollection<BitmapImage> _currentPosters;
 
-        public RecommendationsViewModel(IMovieService movieService)
+        public RecommendationsViewModel()
         {
-            _movieService = movieService;
-            projectDirectory = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.FullName;
-            _moviesCsvPath = Path.Combine(projectDirectory, "Data", "movies.csv");
+            _projectDirectory = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.FullName;
             LoadPostersCommand = new DelegateCommand(LoadPosters);
             PosterClickCommand = new DelegateCommand<BitmapImage>(OnPosterClick);
             NextPageCommand = new DelegateCommand(OnNextPage, () => CanGoNext);
@@ -35,7 +32,7 @@ namespace RecomendMovie.ViewModels
         }
         private void LoadPosters()
         {
-            _postersDirectory = Path.Combine(projectDirectory, "Data", "posters");
+            _postersDirectory = Path.Combine(_projectDirectory, "Data", "posters");
             //MessageBox.Show(_postersDirectory);
             var allPosters = new List<BitmapImage>();
             string posterPath = "";
@@ -86,9 +83,7 @@ namespace RecomendMovie.ViewModels
             // Получаем ID фильма из имени файла постера
             var fileName = System.IO.Path.GetFileNameWithoutExtension(poster.UriSource.LocalPath);
             if (int.TryParse(fileName, out int movieId))
-            {
                 OpenMovieDetails(movieId);
-            }
         }
         public ObservableCollection<Movie> Movies { get; private set; }
 
@@ -139,7 +134,7 @@ namespace RecomendMovie.ViewModels
         }
         private void OpenMovieDetails(int movieId)
         {
-            var movieDetailsViewModel = new MovieDetailsViewModel(movieId, _movieService, _moviesCsvPath);
+            var movieDetailsViewModel = new MovieDetailsViewModel(movieId, _projectDirectory, _postersDirectory);
             var movieDetailsView = new MovieDetailsView
             {
                 DataContext = movieDetailsViewModel

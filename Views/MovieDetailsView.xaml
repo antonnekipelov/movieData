@@ -7,42 +7,48 @@
         Title="Movie Details"
         Style="{StaticResource ModalWindowStyle}"
         WindowStartupLocation="CenterScreen">
-
-    <Grid>
+    <Grid Style="{StaticResource GridMargin20Style}">
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Style="{StaticResource RowHeightAutoStyle}"/>
+            <RowDefinition Style="{StaticResource RowHeightStyle}"/>
         </Grid.RowDefinitions>
 
-        <!-- Название фильма -->
+        <!-- Название фильма по центру -->
         <TextBlock Text="{Binding Name}" Style="{StaticResource TitleTextBlockStyle}" Grid.Row="0"/>
 
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto"/>
-                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Style="{StaticResource ColumnWidth2Style}"/>
+                <ColumnDefinition Style="{StaticResource ColumnWidth1Style}"/>
             </Grid.ColumnDefinitions>
 
             <!-- Постер фильма -->
-            <Image Source="{Binding Poster}" Style="{StaticResource PosterImageStyle}" />
+            <Image Grid.Column="1" Source="{Binding Poster}" Style="{StaticResource MoviePosterImage}"/>
 
             <!-- Информация о фильме -->
-            <StackPanel Grid.Column="1" Style="{StaticResource InfoStackPanelStyle}">
-                <TextBlock Text="Год релиза:" Style="{StaticResource BoldLabelStyle}" />
-                <TextBlock Text="{Binding Date}" Style="{StaticResource InfoTextBlockStyle}" />
+            <Border Style="{Binding PaddedBorderStyle}">
+                <StackPanel Grid.Column="1">
+                    <TextBlock Text="Год релиза:" Style="{StaticResource BoldLabelStyle}" />
+                    <TextBlock Text="{Binding Date}" Style="{StaticResource InfoTextBlockStyle}" />
 
-                <TextBlock Text="Теглайн:" Style="{StaticResource BoldLabelStyle}" />
-                <TextBlock Text="{Binding Tagline}" Style="{StaticResource InfoTextBlockStyle}" />
+                    <TextBlock Text="Теглайн:" Style="{StaticResource BoldLabelStyle}" />
+                    <TextBlock Text="{Binding Tagline}" Style="{StaticResource InfoTextBlockStyle}" />
 
-                <TextBlock Text="Описание:" Style="{StaticResource BoldLabelStyle}" />
-                <TextBlock Text="{Binding Description}" Style="{StaticResource InfoTextBlockStyle}" />
+                    <TextBlock Text="Описание:" Style="{StaticResource BoldLabelStyle}" />
+                    <TextBlock Text="{Binding Description}" Style="{StaticResource MultilineTextBlockStyle}" />
 
-                <TextBlock Text="Продолжительность:" Style="{StaticResource BoldLabelStyle}" />
-                <TextBlock Text="{Binding Minute}" Style="{StaticResource InfoTextBlockStyle}" />
+                    <TextBlock Text="Продолжительность:" Style="{StaticResource BoldLabelStyle}" />
+                    <TextBlock Text="{Binding Minute}" Style="{StaticResource InfoTextBlockStyle}" />
 
-                <TextBlock Text="Рейтинг:" Style="{StaticResource BoldLabelStyle}" />
-                <TextBlock Text="{Binding Rating}" Style="{StaticResource InfoTextBlockStyle}" />
-            </StackPanel>
+                    <TextBlock Text="Рейтинг:" Style="{StaticResource BoldLabelStyle}" />
+                    <TextBlock Text="{Binding Rating}" Style="{StaticResource InfoTextBlockStyle}" />
+                    <!-- Лайк и Дизлайк -->
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                        <Button Content="Нравится" Command="{Binding LikeCommand}" Style="{StaticResource CommonButtonStyle}"/>
+                        <Button Content="Не нравится" Command="{Binding DisLikeCommand}" Style="{StaticResource CommonButtonStyle}"/>
+                    </StackPanel>
+                </StackPanel>
+            </Border>
         </Grid>
     </Grid>
 </Window>

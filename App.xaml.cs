@@ -11,8 +11,8 @@ namespace RecomendMovie
     {
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
-            containerRegistry.RegisterSingleton<IUserService, UserService>();
-            containerRegistry.RegisterSingleton<IMovieService, MovieService>();
+            containerRegistry.RegisterSingleton<UserService, UserService>();
+            containerRegistry.RegisterSingleton<MovieService, MovieService>();
             containerRegistry.RegisterForNavigation<RecommendationsView, RecommendationsViewModel>();
             containerRegistry.RegisterForNavigation<RegistrationView, RegistrationViewModel>();
             containerRegistry.RegisterForNavigation<MovieDetailsView, MovieDetailsViewModel>();

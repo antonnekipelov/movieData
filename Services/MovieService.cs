@@ -7,7 +7,7 @@ using RecomendMovie.Models;
 
 namespace RecomendMovie.Services
 {
-    public class MovieService : IMovieService
+    public class MovieService
     {
         public IEnumerable<Movie> GetMovies(string csvFilePath)
         {

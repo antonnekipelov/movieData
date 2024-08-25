@@ -1,53 +1,54 @@
 ﻿using RecomendMovie.Models;
-using RecomendMovie.Services;
 using System.Data.SQLite;
-
-public class UserService : IUserService
+using System.IO;
+using Newtonsoft.Json;
+namespace RecomendMovie.Services
 {
-    private readonly string _connectionString = "Data Source=users.db;Version=3;";
-
-    public UserService()
+    public class UserService
     {
-        using (var connection = new SQLiteConnection(_connectionString))
-        {
-            connection.Open();
-            var command = new SQLiteCommand("CREATE TABLE IF NOT EXISTS Users (Username TEXT PRIMARY KEY, Password TEXT)", connection);
-            command.ExecuteNonQuery();
-        }
-    }
+        private readonly string _filePath = "users.json";
 
-    public User Register(string username, string password)
-    {
-        using (var connection = new SQLiteConnection(_connectionString))
+        public UserService()
         {
-            connection.Open();
-            var command = new SQLiteCommand("INSERT INTO Users (Username, Password) VALUES (@username, @password)", connection);
-            command.Parameters.AddWithValue("@username", username);
-            command.Parameters.AddWithValue("@password", password);
-            command.ExecuteNonQuery();
-            connection.Close();
-        }
-        return new User { Username = username, PasswordHash = password };
-    }
-
-    public User Authenticate(string username, string password)
-    {
-        using (var connection = new SQLiteConnection(_connectionString))
-        {
-            connection.Open();
-            var command = new SQLiteCommand("SELECT Username, Password FROM Users WHERE Username = @username AND Password = @password", connection);
-            command.Parameters.AddWithValue("@username", username);
-            command.Parameters.AddWithValue("@password", password);
-
-            using (var reader = command.ExecuteReader())
+            if (!File.Exists(_filePath))
             {
-                if (reader.Read())
-                {
-                    return new User { Username = reader["Username"].ToString(), PasswordHash = reader["Password"].ToString() };
-                }
+                // Создаем пустой JSON-файл, если его не существует
+                File.WriteAllText(_filePath, JsonConvert.SerializeObject(new List<User>()));
             }
-            connection.Close();
         }
-        return null;
+
+        public User Register(string username, string password)
+        {
+            var users = LoadUsers();
+            // Проверка, существует ли пользователь с таким же логином
+            if (users.Exists(u => u.Username == username))
+                return null; // Пользователь с таким логином уже существует
+            var newUser = new User { Username = username, PasswordHash = password };
+            users.Add(newUser);
+            SaveUsers(users);
+            return newUser;
+        }
+
+        public User Authenticate(string username, string password)
+        {
+            var users = LoadUsers();
+
+            return users.Find(u => u.Username == username && u.PasswordHash == password);
+        }
+        private List<User> LoadUsers()
+        {
+            if (!File.Exists(_filePath))
+            {
+                return new List<User>();
+            }
+
+            var json = File.ReadAllText(_filePath);
+            return JsonConvert.DeserializeObject<List<User>>(json);
+        }
+        private void SaveUsers(List<User> users)
+        {
+            var json = JsonConvert.SerializeObject(users, Formatting.Indented);
+            File.WriteAllText(_filePath, json);
+        }
     }
 }

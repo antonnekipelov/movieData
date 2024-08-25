@@ -31,7 +31,7 @@
                             </DataTemplate>
                         </ItemsControl.ItemTemplate>
                     </ItemsControl>
-                    <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Center" Style="{StaticResource StackPanelMargin10Style}">
+                    <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Center">
                         <Button Content="Previous" Command="{Binding PreviousPageCommand}" IsEnabled="{Binding CanGoPrevious}"
                                 Style="{StaticResource CommonButtonStyle}"/>
                         <TextBlock Text="{Binding CurrentPageDisplay}" VerticalAlignment="Center" Margin="10,0"/>
