@@ -1,37 +1,55 @@
-﻿using RecomendMovie.Models;
+﻿using Newtonsoft.Json;
+using RecomendMovie.Models;
+using System.Collections.Generic;
+using System.IO;
+
 
 public class ServiceMovieRating
 {
-    private readonly List<MovieRating> _movieRatings;
+    private readonly string _ratingsFilePath = "ratings.json";
+    private List<MovieRating> _ratings;
 
     public ServiceMovieRating()
     {
-        _movieRatings = new List<MovieRating>();
+        _ratings = LoadRatings();
     }
 
-    public void RateMovie(Movie movie, bool rate)
+    public void RateMovie(User user, Movie movie, bool rate)
     {
-        // Проверяем, есть ли уже оценка для данного фильма
-        var existingRating = _movieRatings.FirstOrDefault(r => r.Movie == movie);
+        _ratings = LoadRatings();
+        var existingRating = _ratings.FirstOrDefault(r => r.Movie.Id == movie.Id && r.User.Username == user.Username);
         if (existingRating != null)
-        {
             // Обновляем оценку, если фильм уже был оценен
             existingRating.Rate = rate;
-        }
         else
         {
-            // Добавляем новую оценку
-            var newRating = new MovieRating
+            var movieRating = new MovieRating
             {
+                User = user,
                 Movie = movie,
                 Rate = rate
             };
-            _movieRatings.Add(newRating);
+
+            _ratings.Add(movieRating);
         }
+        SaveRatings();
+    }
+    public List<MovieRating> LoadRatings()
+    {
+        if (!File.Exists(_ratingsFilePath))
+            return new List<MovieRating>();
+        var json = File.ReadAllText(_ratingsFilePath);
+        return JsonConvert.DeserializeObject<List<MovieRating>>(json);
+    }
+    private void SaveRatings()
+    {
+        var json = JsonConvert.SerializeObject(_ratings, Formatting.Indented);
+        File.WriteAllText(_ratingsFilePath, json);
     }
 
-    public IEnumerable<MovieRating> GetRatings()
+    public void SaveRatingsOnExit()
     {
-        return _movieRatings;
+        SaveRatings();
     }
+
 }

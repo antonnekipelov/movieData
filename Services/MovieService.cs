@@ -1,14 +1,22 @@
 ﻿using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
+using System.Windows.Media.Imaging;
 using CsvHelper;
 using CsvHelper.Configuration;
+using Prism.Commands;
 using RecomendMovie.Models;
 
 namespace RecomendMovie.Services
 {
     public class MovieService
     {
+        private string _moviesCsvPath = "";
+        public MovieService()
+        {
+            string _projectDirectory = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.FullName;
+            _moviesCsvPath = Path.Combine(_projectDirectory, "Data", "movies.csv");
+        }
         public IEnumerable<Movie> GetMovies(string csvFilePath)
         {
             if (string.IsNullOrEmpty(csvFilePath))
@@ -28,9 +36,9 @@ namespace RecomendMovie.Services
                 return movies;
             }
         }
-        public Movie GetMovieById(int movieId, string csvFilePath)
+        public Movie GetMovieById(int movieId)
         {
-            var movies = GetMovies(csvFilePath);
+            var movies = GetMovies(_moviesCsvPath);
             return movies.FirstOrDefault(movie => movie.Id == movieId);
         }
     }

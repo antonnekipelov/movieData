@@ -1,14 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace RecomendMovie.Models
+﻿namespace RecomendMovie.Models
 {
     public class MovieRating
     {
-        public Movie Movie { get; set; } // Экземпляр модели фильма
-        public bool Rate { get; set; }//true - Лайк, false - Диздайк
+        public User User { get; set; }          // Данные пользователя
+        public Movie Movie { get; set; }        // Данные о фильме
+        public bool Rate { get; set; }          // true - Лайк, false - Дизлайк
     }
 }

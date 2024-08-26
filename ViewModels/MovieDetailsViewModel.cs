@@ -1,38 +1,37 @@
 ﻿using Prism.Commands;
 using Prism.Mvvm;
-using System.IO;
-using RecomendMovie.Services;
 using System.ComponentModel;
 using System.Windows.Input;
 using System.Windows.Media.Imaging;
+using System.IO;
+using RecomendMovie.Models;
 
 namespace RecomendMovie.ViewModels
 {
     public class MovieDetailsViewModel : BindableBase
     {
         private readonly ServiceMovieRating _serviceMovieRating;
-        private readonly MovieService _movieService;
         private readonly Movie _movie;
-        private string _moviesCsvPath;
+        private readonly User _user;
 
-        public MovieDetailsViewModel(int movieId,  string _projectDirectory, string _postersDirectory)
+        public MovieDetailsViewModel(Movie movie, User user, string _postersDirectory)
         {
-            _movieService = new MovieService();
+            _movie = movie;
+            _user = user;
             _serviceMovieRating = new ServiceMovieRating();
-            _moviesCsvPath = Path.Combine(_projectDirectory, "Data", "movies.csv");
-            _movie = _movieService.GetMovieById(movieId, _moviesCsvPath);
-            _moviesCsvPath = Path.Combine(_projectDirectory, "Data", "movies.csv");
-            Poster = new BitmapImage(new Uri(Path.Combine(_postersDirectory, $"{movieId}.jpg"), UriKind.Absolute));
+
+            Poster = new BitmapImage(new Uri("Data/posters/" + $"{movie.Id}.jpg", UriKind.RelativeOrAbsolute));
+            Poster = new BitmapImage(new Uri(Path.Combine(_postersDirectory, $"{_movie.Id}.jpg"), UriKind.Absolute));
             LikeCommand = new DelegateCommand(LikeMovie);
             DisLikeCommand = new DelegateCommand(DisLikeMovie);
         }
         private void LikeMovie()
         {
-            _serviceMovieRating.RateMovie(_movie, true);
+            _serviceMovieRating.RateMovie(_user, _movie, true);
         }
         private void DisLikeMovie()
         {
-            _serviceMovieRating.RateMovie(_movie, false);
+            _serviceMovieRating.RateMovie(_user, _movie, false);
         }
         public string Name => _movie.Name;
         public int Date => _movie.Date;
@@ -40,17 +39,7 @@ namespace RecomendMovie.ViewModels
         public string Description => _movie.Description;
         public int Minute => _movie.Minute;
         public double Rating => _movie.Rating;
-        private BitmapImage _poster;
-
-        public BitmapImage Poster
-        {
-            get => _poster;
-            set
-            {
-                _poster = value;
-                OnPropertyChanged(nameof(Poster));
-            }
-        }
+        public BitmapImage Poster { get; set; }
         public ICommand LikeCommand { get; }
         public ICommand DisLikeCommand { get; }
         public event PropertyChangedEventHandler PropertyChanged;

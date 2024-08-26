@@ -52,6 +52,8 @@ namespace RecomendMovie.ViewModels
             var app = (App)Application.Current;
             var recommendationsWindow = app.Container.Resolve<RecommendationsView>();
             recommendationsWindow.DataContext = app.Container.Resolve<RecommendationsViewModel>();
+            var recommendationsViewModel = new RecommendationsViewModel(_userService);
+            recommendationsWindow.DataContext = recommendationsViewModel;
             recommendationsWindow.Show();
 
             // Закрываем окно регистрации

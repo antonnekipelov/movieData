@@ -14,32 +14,32 @@ namespace RecomendMovie.ViewModels
     {
         
         private const int PostersPerPage = 20;
-        private string _postersDirectory;
         private int _currentPage = 1;
         private string _projectDirectory;
         private ObservableCollection<BitmapImage> _currentPosters;
-
-        public RecommendationsViewModel()
+        private readonly UserService _userService;
+        private readonly MovieService _movieService;
+        string _postersDirectory = "";
+        public RecommendationsViewModel(UserService userService)
         {
+            _userService = userService;
+            _movieService = new MovieService();
             _projectDirectory = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.FullName;
+            _postersDirectory = Path.Combine(_projectDirectory, "Data", "posters");
             LoadPostersCommand = new DelegateCommand(LoadPosters);
             PosterClickCommand = new DelegateCommand<BitmapImage>(OnPosterClick);
             NextPageCommand = new DelegateCommand(OnNextPage, () => CanGoNext);
             PreviousPageCommand = new DelegateCommand(OnPreviousPage, () => CanGoPrevious);
-           
             // Вызов команды при инициализации
             LoadPostersCommand.Execute(null);
         }
         private void LoadPosters()
         {
-            _postersDirectory = Path.Combine(_projectDirectory, "Data", "posters");
-            //MessageBox.Show(_postersDirectory);
             var allPosters = new List<BitmapImage>();
             string posterPath = "";
             for (int i = 1000001; i <= 1000100; i++)
             {
                 posterPath = Path.Combine(_postersDirectory, $"{i}.jpg");
-                //MessageBox.Show(posterPath);
                 if (File.Exists(posterPath))
                 {
                     try
@@ -134,7 +134,7 @@ namespace RecomendMovie.ViewModels
         }
         private void OpenMovieDetails(int movieId)
         {
-            var movieDetailsViewModel = new MovieDetailsViewModel(movieId, _projectDirectory, _postersDirectory);
+            var movieDetailsViewModel = new MovieDetailsViewModel(_movieService.GetMovieById(movieId), _userService.GetCurrentUser(), _postersDirectory);
             var movieDetailsView = new MovieDetailsView
             {
                 DataContext = movieDetailsViewModel
