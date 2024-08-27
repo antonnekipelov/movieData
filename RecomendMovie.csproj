@@ -9,6 +9,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Behaviors\**" />
+    <EmbeddedResource Remove="Behaviors\**" />
+    <None Remove="Behaviors\**" />
+    <Page Remove="Behaviors\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="CsvHelper" Version="33.0.1" />
     <PackageReference Include="Microsoft.Xaml.Behaviors.Wpf" Version="1.1.122" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
@@ -16,10 +23,6 @@
     <PackageReference Include="Prism.Wpf" Version="8.1.97" />
     <PackageReference Include="System.Data.SQLite" Version="1.0.118" />
     <PackageReference Include="Unity" Version="5.11.10" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Behaviors\" />
   </ItemGroup>
 
 </Project>

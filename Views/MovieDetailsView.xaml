@@ -30,20 +30,50 @@
                 <StackPanel Grid.Column="1">
                     <TextBlock Text="Год релиза:" Style="{StaticResource BoldLabelStyle}" />
                     <TextBlock Text="{Binding Date}" Style="{StaticResource InfoTextBlockStyle}" />
-
-                    <TextBlock Text="Теглайн:" Style="{StaticResource BoldLabelStyle}" />
+                    <TextBlock Text="Жанр:" Style="{StaticResource BoldLabelStyle}"/>
+                    <ItemsControl ItemsSource="{Binding Genres}">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding GenreName}" Style="{StaticResource InfoTextBlockStyle}"/>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                    <TextBlock Text="Страна:" Style="{StaticResource BoldLabelStyle}"/>
+                    <ItemsControl ItemsSource="{Binding Countries}">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding CountryName}" Style="{StaticResource InfoTextBlockStyle}"/>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                    <TextBlock Text="Язык:" Style="{StaticResource BoldLabelStyle}"/>
+                    <ItemsControl ItemsSource="{Binding Languages}">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel>
+                                    <TextBlock Text="{Binding LanguageName}" Style="{StaticResource InfoTextBlockStyle}"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                    <TextBlock Text="Режиссер:" Style="{StaticResource BoldLabelStyle}"/>
+                    <ItemsControl ItemsSource="{Binding Directors}">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Name}" Style="{StaticResource InfoTextBlockStyle}"/>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                    <TextBlock Text="Слоган:" Style="{StaticResource BoldLabelStyle}" />
                     <TextBlock Text="{Binding Tagline}" Style="{StaticResource InfoTextBlockStyle}" />
-
                     <TextBlock Text="Описание:" Style="{StaticResource BoldLabelStyle}" />
                     <TextBlock Text="{Binding Description}" Style="{StaticResource MultilineTextBlockStyle}" />
-
                     <TextBlock Text="Продолжительность:" Style="{StaticResource BoldLabelStyle}" />
                     <TextBlock Text="{Binding Minute}" Style="{StaticResource InfoTextBlockStyle}" />
-
                     <TextBlock Text="Рейтинг:" Style="{StaticResource BoldLabelStyle}" />
                     <TextBlock Text="{Binding Rating}" Style="{StaticResource InfoTextBlockStyle}" />
                     <!-- Лайк и Дизлайк -->
-                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                    <StackPanel>
                         <Button Content="Нравится" Command="{Binding LikeCommand}" Style="{StaticResource CommonButtonStyle}"/>
                         <Button Content="Не нравится" Command="{Binding DisLikeCommand}" Style="{StaticResource CommonButtonStyle}"/>
                     </StackPanel>

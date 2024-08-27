@@ -16,7 +16,7 @@ namespace RecomendMovie.ViewModels
         private const int PostersPerPage = 20;
         private int _currentPage = 1;
         private string _projectDirectory;
-        private ObservableCollection<BitmapImage> _currentPosters;
+        private ObservableCollection<BitmapImage> _posters;
         private readonly UserService _userService;
         private readonly MovieService _movieService;
         string _postersDirectory = "";
@@ -89,8 +89,8 @@ namespace RecomendMovie.ViewModels
 
         public ObservableCollection<BitmapImage> CurrentPosters
         {
-            get => _currentPosters;
-            set => SetProperty(ref _currentPosters, value);
+            get => _posters;
+            set => SetProperty(ref _posters, value);
         }
 
         public ICommand NextPageCommand { get; }

@@ -4,15 +4,7 @@
       "Username": "Wasane",
       "PasswordHash": "_D9Ag]VC"
     },
-    "Movie": {
-      "Id": 1000001,
-      "Name": "Barbie",
-      "Date": 2023,
-      "Tagline": "She's everything. He's just Ken.",
-      "Description": "Barbie and Ken are having the time of their lives in the colorful and seemingly perfect world of Barbie Land. However, when they get a chance to go to the real world, they soon discover the joys and perils of living among humans.",
-      "Minute": 114,
-      "Rating": 3.86
-    },
+    "MovieId": 1000001,
     "Rate": false
   },
   {
@@ -20,15 +12,7 @@
       "Username": "Wasane",
       "PasswordHash": "_D9Ag]VC"
     },
-    "Movie": {
-      "Id": 1000040,
-      "Name": "Avengers: Infinity War",
-      "Date": 2018,
-      "Tagline": "An entire universe. Once and for all.",
-      "Description": "As the Avengers and their allies have continued to protect the world from threats too large for any one hero to handle, a new danger has emerged from the cosmic shadows: Thanos. A despot of intergalactic infamy, his goal is to collect all six Infinity Stones, artifacts of unimaginable power, and use them to inflict his twisted will on all of reality. Everything the Avengers have fought for has led up to this moment - the fate of Earth and existence itself has never been more uncertain.",
-      "Minute": 149,
-      "Rating": 3.96
-    },
+    "MovieId": 1000006,
     "Rate": true
   }
 ]

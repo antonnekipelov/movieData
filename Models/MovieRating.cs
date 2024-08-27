@@ -3,7 +3,7 @@
     public class MovieRating
     {
         public User User { get; set; }          // Данные пользователя
-        public Movie Movie { get; set; }        // Данные о фильме
+        public int MovieId { get; set; }       // ID фильма
         public bool Rate { get; set; }          // true - Лайк, false - Дизлайк
     }
 }

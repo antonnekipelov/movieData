@@ -1,0 +1,233 @@
+id,type,language
+1000001,Language,English
+1000002,Primary language,Korean
+1000002,Spoken language,English
+1000002,Spoken language,German
+1000002,Spoken language,Korean
+1000003,Primary language,English
+1000003,Spoken language,Cantonese
+1000003,Spoken language,Chinese
+1000003,Spoken language,English
+1000004,Language,English
+1000005,Language,English
+1000006,Primary language,English
+1000006,Spoken language,Dutch
+1000006,Spoken language,English
+1000007,Language,English
+1000008,Language,English
+1000009,Primary language,English
+1000009,Spoken language,Chinese
+1000009,Spoken language,English
+1000010,Primary language,English
+1000010,Spoken language,English
+1000010,Spoken language,Spanish
+1000010,Spoken language,French
+1000011,Primary language,English
+1000011,Spoken language,English
+1000011,Spoken language,Japanese
+1000011,Spoken language,Spanish
+1000012,Language,English
+1000013,Language,English
+1000014,Language,English
+1000015,Primary language,English
+1000015,Spoken language,Spanish
+1000015,Spoken language,English
+1000016,Primary language,English
+1000016,Spoken language,English
+1000016,Spoken language,Swedish
+1000017,Primary language,English
+1000017,Spoken language,English
+1000017,Spoken language,Chinese
+1000018,Primary language,English
+1000018,Spoken language,English
+1000018,Spoken language,French
+1000018,Spoken language,Japanese
+1000018,Spoken language,Swahili
+1000019,Language,English
+1000020,Primary language,English
+1000020,Spoken language,English
+1000020,Spoken language,French
+1000020,Spoken language,Portuguese
+1000021,Primary language,English
+1000021,Spoken language,English
+1000021,Spoken language,Hindi
+1000021,Spoken language,Italian
+1000021,Spoken language,Spanish
+1000022,Language,English
+1000023,Language,English
+1000024,Primary language,English
+1000024,Spoken language,English
+1000024,Spoken language,French
+1000025,Primary language,English
+1000025,Spoken language,English
+1000025,Spoken language,French
+1000026,Primary language,English
+1000026,Spoken language,English
+1000026,Spoken language,Spanish
+1000026,Spoken language,Cantonese
+1000027,Primary language,English
+1000027,Spoken language,English
+1000027,Spoken language,Tagalog
+1000028,Language,English
+1000029,Language,English
+1000030,Language,Japanese
+1000031,Primary language,English
+1000031,Spoken language,English
+1000031,Spoken language,Spanish
+1000032,Language,English
+1000033,Primary language,English
+1000033,Spoken language,English
+1000033,Spoken language,Italian
+1000033,Spoken language,Spanish
+1000034,Language,English
+1000035,Primary language,English
+1000035,Spoken language,English
+1000035,Spoken language,French
+1000035,Spoken language,Italian
+1000036,Primary language,English
+1000036,Spoken language,German
+1000036,Spoken language,English
+1000036,Spoken language,French
+1000036,Spoken language,Italian
+1000037,Primary language,English
+1000037,Spoken language,French
+1000037,Spoken language,English
+1000038,Language,English
+1000039,Language,English
+1000040,Primary language,English
+1000040,Spoken language,English
+1000040,Spoken language,Xhosa
+1000041,Language,English
+1000042,Language,English
+1000043,Primary language,English
+1000043,Spoken language,English
+1000043,Spoken language,Japanese
+1000043,Spoken language,Xhosa
+1000044,Language,English
+1000045,Primary language,English
+1000045,Spoken language,English
+1000045,Spoken language,Japanese
+1000045,Spoken language,French
+1000046,Primary language,English
+1000046,Spoken language,Latin
+1000046,Spoken language,English
+1000046,Spoken language,Italian
+1000047,Primary language,English
+1000047,Spoken language,English
+1000047,Spoken language,French
+1000047,Spoken language,German
+1000048,Primary language,English
+1000048,Spoken language,English
+1000048,Spoken language,German
+1000049,Primary language,English
+1000049,Spoken language,French
+1000049,Spoken language,English
+1000049,Spoken language,Italian
+1000050,Language,English
+1000051,Language,English
+1000052,Language,English
+1000053,Primary language,English
+1000053,Spoken language,English
+1000053,Spoken language,French
+1000054,Primary language,English
+1000054,Spoken language,English
+1000054,Spoken language,French
+1000055,Primary language,English
+1000055,Spoken language,Spanish
+1000055,Spoken language,English
+1000055,Spoken language,Portuguese
+1000056,Language,English
+1000057,Language,English
+1000058,Primary language,English
+1000058,Spoken language,English
+1000058,Spoken language,French
+1000058,Spoken language,Latin
+1000059,Primary language,English
+1000059,Spoken language,English
+1000059,Spoken language,Spanish
+1000060,Primary language,English
+1000060,Spoken language,English
+1000060,Spoken language,Latin
+1000061,Primary language,English
+1000061,Spoken language,English
+1000061,Spoken language,German
+1000062,Language,English
+1000063,Primary language,English
+1000063,Spoken language,English
+1000063,Spoken language,Korean
+1000063,Spoken language,Swahili
+1000063,Spoken language,Xhosa
+1000064,Primary language,English
+1000064,Spoken language,Chinese
+1000064,Spoken language,English
+1000064,Spoken language,Russian
+1000065,Primary language,English
+1000065,Spoken language,English
+1000065,Spoken language,Finnish
+1000065,Spoken language,Hungarian
+1000065,Spoken language,Japanese
+1000065,Spoken language,Russian
+1000065,Spoken language,Somali
+1000065,Spoken language,Spanish
+1000066,Language,English
+1000067,Language,English
+1000068,Language,English
+1000069,Primary language,English
+1000069,Spoken language,English
+1000069,Spoken language,Korean
+1000070,Language,English
+1000071,Primary language,English
+1000071,Spoken language,English
+1000071,Spoken language,Spanish
+1000072,Language,English
+1000073,Language,English
+1000074,Primary language,English
+1000074,Spoken language,English
+1000074,Spoken language,French
+1000074,Spoken language,German
+1000074,Spoken language,Swedish
+1000074,Spoken language,Italian
+1000074,Spoken language,Russian
+1000075,Primary language,English
+1000075,Spoken language,English
+1000075,Spoken language,Romanian
+1000076,Language,English
+1000077,Language,English
+1000078,Primary language,English
+1000078,Spoken language,English
+1000078,Spoken language,French
+1000078,Spoken language,Swedish
+1000079,Language,English
+1000080,Primary language,French
+1000080,Spoken language,English
+1000080,Spoken language,French
+1000080,Spoken language,German
+1000081,Language,English
+1000082,Language,English
+1000083,Language,English
+1000084,Language,English
+1000085,Language,English
+1000086,Language,English
+1000087,Primary language,English
+1000087,Spoken language,Swahili
+1000087,Spoken language,English
+1000087,Spoken language,German
+1000087,Spoken language,Vietnamese
+1000088,Language,English
+1000089,Language,English
+1000090,Language,English
+1000091,Primary language,English
+1000091,Spoken language,Italian
+1000091,Spoken language,English
+1000092,Language,English
+1000093,Language,English
+1000094,Language,Japanese
+1000095,Language,English
+1000096,Language,English
+1000097,Language,English
+1000098,Language,English
+1000099,Primary language,English
+1000099,Spoken language,English
+1000099,Spoken language,Spanish
+1000099,Spoken language,Turkish
+1000100,Language,English

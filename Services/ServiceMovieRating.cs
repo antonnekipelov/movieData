@@ -2,6 +2,7 @@
 using RecomendMovie.Models;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 
 
 public class ServiceMovieRating
@@ -14,10 +15,10 @@ public class ServiceMovieRating
         _ratings = LoadRatings();
     }
 
-    public void RateMovie(User user, Movie movie, bool rate)
+    public void RateMovie(User user, int movieId, bool rate)
     {
         _ratings = LoadRatings();
-        var existingRating = _ratings.FirstOrDefault(r => r.Movie.Id == movie.Id && r.User.Username == user.Username);
+        var existingRating = _ratings.FirstOrDefault(r => r.MovieId == movieId && r.User.Username == user.Username);
         if (existingRating != null)
             // Обновляем оценку, если фильм уже был оценен
             existingRating.Rate = rate;
@@ -26,7 +27,7 @@ public class ServiceMovieRating
             var movieRating = new MovieRating
             {
                 User = user,
-                Movie = movie,
+                MovieId = movieId,
                 Rate = rate
             };
 
@@ -47,9 +48,9 @@ public class ServiceMovieRating
         File.WriteAllText(_ratingsFilePath, json);
     }
 
-    public void SaveRatingsOnExit()
+    /*public void SaveRatingsOnExit()
     {
         SaveRatings();
-    }
+    }*/
 
 }

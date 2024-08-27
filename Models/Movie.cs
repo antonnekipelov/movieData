@@ -1,4 +1,6 @@
 ﻿using CsvHelper.Configuration.Attributes;
+using System.Diagnostics.Metrics;
+using System.IO;
 
 public class Movie
 {
@@ -23,4 +25,5 @@ public class Movie
     [Name("rating")]
     public double Rating { get; set; }
 }
+
 
