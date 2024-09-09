@@ -3,6 +3,6 @@
     public class User
     {
         public string Username { get; set; }
-        public string PasswordHash { get; set; } // Хэш пароля
+        public string PasswordHash { get; set; } 
     }
 }

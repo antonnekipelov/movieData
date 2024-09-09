@@ -4,15 +4,7 @@
       "Username": "Wasane",
       "PasswordHash": "_D9Ag]VC"
     },
-    "MovieId": 1000001,
-    "Rate": false
-  },
-  {
-    "User": {
-      "Username": "Wasane",
-      "PasswordHash": "_D9Ag]VC"
-    },
-    "MovieId": 1000006,
+    "MovieId": 1000017,
     "Rate": true
   }
 ]

@@ -1,0 +1,110 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="RecomendMovie.AttachedProperties.PasswordBoxHelper">
+    <Position X="1" Y="0.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAQAAAAAAAgAAAAkAAAAAAAAABAAAAAAgAAAAAA=</HashCode>
+      <FileName>AttachedProperties\PasswordBoxHelper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RecomendMovie.Converters.CollectionToStringConverter">
+    <Position X="0.5" Y="3.25" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAIAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Converters\CollectionToStringConverter.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="RecomendMovie.Models.Country">
+    <Position X="3.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Country.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RecomendMovie.Models.Director">
+    <Position X="5.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAQAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Director.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RecomendMovie.Models.Genre">
+    <Position X="7.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAI=</HashCode>
+      <FileName>Models\Genre.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RecomendMovie.Models.Language">
+    <Position X="9" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAQAgAAAAAQAAAAAAAAA=</HashCode>
+      <FileName>Models\Language.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RecomendMovie.Models.Movie">
+    <Position X="10.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAgAAAAAAAAAAQAAAAAACEBgAAAAAAAAAA=</HashCode>
+      <FileName>Models\Movie.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RecomendMovie.Models.MovieRating">
+    <Position X="14.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAABAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\MovieRating.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RecomendMovie.Models.User">
+    <Position X="12.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\User.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RecomendMovie.Services.MovieService">
+    <Position X="5.25" Y="3" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AABAAAAAAAAQQAAAhAAAAUAAAABAQAAAAAAAgAAAADA=</HashCode>
+      <FileName>Services\MovieService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ServiceMovieRating">
+    <Position X="7.5" Y="3" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AABAAAAACAAAAQAAAAEAAAAAAAAQAAAAEAAAgAAAgAA=</HashCode>
+      <FileName>Services\ServiceMovieRating.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RecomendMovie.Services.UserService">
+    <Position X="3.5" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAgAACAAAEACAAIAAAABAAAAAAIAAAAAAAA=</HashCode>
+      <FileName>Services\UserService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RecomendMovie.ViewModels.MovieDetailsViewModel">
+    <Position X="16" Y="3" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>BBAEABAIDCAwAAgAAAIAAQQAAAQAECkBgAQEEAAAAEA=</HashCode>
+      <FileName>ViewModels\MovieDetailsViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RecomendMovie.ViewModels.RecommendationsViewModel">
+    <Position X="12.75" Y="3" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>ABkQoCAMwSAAAIgAIAgAQgiFgYQAK8IAAEEFEcABAAA=</HashCode>
+      <FileName>ViewModels\RecommendationsViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RecomendMovie.ViewModels.RegistrationViewModel">
+    <Position X="10" Y="3" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAIAAAAAAAAIQAAAgAAAAAAAACGAAIEAACAAAA=</HashCode>
+      <FileName>ViewModels\RegistrationViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

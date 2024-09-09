@@ -52,16 +52,15 @@
     <!-- Основной стиль для TextBlock -->
     <Style x:Key="DefaultTextBlockStyle" TargetType="TextBlock">
         <Setter Property="Foreground" Value="White"/>
-        <Setter Property="Margin" Value="5"/>
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
     </Style>
-
     <!-- Стиль заголовка фильма (по центру) -->
     <Style x:Key="TitleTextBlockStyle" TargetType="TextBlock">
         <Setter Property="Foreground" Value="White"/>
         <Setter Property="FontSize" Value="24"/>
         <Setter Property="FontWeight" Value="Bold"/>
         <Setter Property="Margin" Value="10,0,10,0"/>
-        <!-- Горизонтальные отступы -->
         <Setter Property="HorizontalAlignment" Value="Center"/>
     </Style>
 
@@ -71,7 +70,7 @@
         <Setter Property="Margin" Value="0,0,0,10"/>
         <Setter Property="TextAlignment" Value="Left"/>
         <Setter Property="HorizontalAlignment" Value="Left"/>
-    </Style> 
+    </Style>
 
     <!-- Стиль для текстовых блоков с жирным шрифтом -->
     <Style x:Key="BoldLabelStyle" TargetType="TextBlock" BasedOn="{StaticResource InfoTextBlockStyle}">
@@ -139,7 +138,6 @@
             </Trigger>
         </Style.Triggers>
     </Style>
-
     <!-- Стиль для изображений постеров в окне рекомендаций -->
     <Style x:Key="PosterImageStyle" TargetType="Image">
         <Setter Property="Width" Value="150"/>
@@ -167,9 +165,23 @@
     <Style x:Key="PaddedBorderStyle" TargetType="Border">
         <Setter Property="Padding" Value="10"/>
     </Style>
-    <!-- Стиль для RadioButton -->
-    <Style x:Key="RadioButtonStyle" TargetType="RadioButton">
-        <Setter Property="Foreground" Value="White"/>
+    <Style x:Key="PaginationStyle" TargetType="StackPanel">
+        <Setter Property="Orientation" Value="Horizontal"/>
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+    </Style>
+    <!-- Стиль для подписей на панели фильтрации -->
+    <Style x:Key="FilterTextBoxStyle" TargetType="TextBlock" BasedOn="{StaticResource InfoTextBlockStyle}">
+        <Setter Property="VerticalAlignment" Value="Center"/>
         <Setter Property="Margin" Value="5"/>
+    </Style>
+    <!-- Стиль для ComboBox с фильтрами -->
+    <Style x:Key="FilterComboBoxStyle" TargetType="ComboBox">
+        <Setter Property="Width" Value="150"/>
+        <Setter Property="Margin" Value="5"/>
+    </Style>
+    <!-- Стиль для StackPanel с фильтрацией -->
+    <Style x:Key="FilterStackPanelStyle" TargetType="StackPanel">
+        <Setter Property="Orientation" Value="Horizontal"/>
+        <Setter Property="HorizontalAlignment" Value="Center"/>
     </Style>
 </ResourceDictionary>

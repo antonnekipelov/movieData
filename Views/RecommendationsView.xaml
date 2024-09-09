@@ -3,20 +3,36 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
         xmlns:prism="http://prismlibrary.com/"
-        Title="Recommendations"
+        Title="RecomendFilms"
         Style="{StaticResource MainWindowStyle}">
     <Grid>
         <TabControl>
-            <TabItem Header="Главная">
+            <TabItem Header="Главная" >
                 <Grid>
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="Auto" />
                     </Grid.RowDefinitions>
-                    <ItemsControl Grid.Row="1" ItemsSource="{Binding CurrentPosters}">
+                    <StackPanel Grid.Row="0" Style="{StaticResource FilterStackPanelStyle}">
+                        <TextBlock Text="Жанр:" Style="{StaticResource FilterTextBoxStyle}"/>
+                        <ComboBox ItemsSource="{Binding AvailableGenres}" 
+                            SelectedItem="{Binding SelectedGenre}" 
+                            Style="{StaticResource FilterComboBoxStyle}"/>
+                        <TextBlock Text="Режиссёр:" Style="{StaticResource FilterTextBoxStyle}"/>
+                        <ComboBox ItemsSource="{Binding AvailableDirectors}" 
+                            SelectedItem="{Binding SelectedDirector}" 
+                            Style="{StaticResource FilterComboBoxStyle}"/>
+                        <TextBlock Text="Год:" Style="{StaticResource FilterTextBoxStyle}"/>
+                        <ComboBox ItemsSource="{Binding AvailableYears}" 
+                            SelectedItem="{Binding SelectedYear}" 
+                            Style="{StaticResource FilterComboBoxStyle}"/>
+                        <Button Content="Сбросить фильтры" Command="{Binding ResetFiltersCommand}" Style="{StaticResource CommonButtonStyle}"/>
+                    </StackPanel>
+                    <ItemsControl Grid.Row="1" ItemsSource="{Binding Posters}">
                         <ItemsControl.ItemsPanel>
                             <ItemsPanelTemplate>
-                                <UniformGrid Columns="5" />
+                                <UniformGrid Columns="4" Rows="3" />
                             </ItemsPanelTemplate>
                         </ItemsControl.ItemsPanel>
                         <ItemsControl.ItemTemplate>
@@ -31,17 +47,41 @@
                             </DataTemplate>
                         </ItemsControl.ItemTemplate>
                     </ItemsControl>
-                    <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Center">
-                        <Button Content="Previous" Command="{Binding PreviousPageCommand}" IsEnabled="{Binding CanGoPrevious}"
-                                Style="{StaticResource CommonButtonStyle}"/>
-                        <TextBlock Text="{Binding CurrentPageDisplay}" VerticalAlignment="Center" Margin="10,0"/>
-                        <Button Content="Next" Command="{Binding NextPageCommand}" IsEnabled="{Binding CanGoNext}"
-                                Style="{StaticResource CommonButtonStyle}"/>
+                    <StackPanel Grid.Row="2" Style="{StaticResource PaginationStyle}" >
+                        <Button Content="Previous" Command="{Binding PreviousPostersPageCommand}" Style="{StaticResource CommonButtonStyle}"/>
+                        <Button Content="Next" Command="{Binding NextPostersPageCommand}" Style="{StaticResource CommonButtonStyle}"/>
                     </StackPanel>
                 </Grid>
             </TabItem>
-
             <TabItem Header="Рекомендации">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <ItemsControl Grid.Row="0" ItemsSource="{Binding Recomendations}">
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <UniformGrid Columns="4" Rows="3" />
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <Image Source="{Binding}" Style="{StaticResource PosterImageStyle}">
+                                    <i:Interaction.Triggers>
+                                        <i:EventTrigger EventName="MouseLeftButtonUp">
+                                            <prism:InvokeCommandAction Command="{Binding DataContext.PosterClickCommand, RelativeSource={RelativeSource AncestorType=ItemsControl}}" CommandParameter="{Binding}" />
+                                        </i:EventTrigger>
+                                    </i:Interaction.Triggers>
+                                </Image>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                    <StackPanel Grid.Row="1" Style="{StaticResource PaginationStyle}" >
+                        <Button Content="Previous" Command="{Binding PreviousRecomendationsPageCommand}" Style="{StaticResource CommonButtonStyle}"/>
+                        <Button Content="Next" Command="{Binding NextRecomendationsPageCommand}" Style="{StaticResource CommonButtonStyle}"/>
+                    </StackPanel>
+                </Grid>
             </TabItem>
         </TabControl>
     </Grid>

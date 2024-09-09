@@ -3,9 +3,8 @@ using Prism.Mvvm;
 using System.Windows.Input;
 using System.Windows.Media.Imaging;
 using System.IO;
-using RecomendMovie.Models;
 using RecomendMovie.Services;
-using System.Collections.ObjectModel;
+using System.Windows;
 
 namespace RecomendMovie.ViewModels
 {
@@ -13,43 +12,125 @@ namespace RecomendMovie.ViewModels
     {
         private readonly MovieService _movieService;
         private readonly ServiceMovieRating _serviceMovieRating;
-        private readonly Movie _movie;
-        private readonly User _user;
+        private readonly UserService _userService;
+        private readonly string _postersDirectory;
+        private int _movieID;
 
-        public MovieDetailsViewModel(Movie movie, User user, string _postersDirectory)
+        public MovieDetailsViewModel(int id, ServiceMovieRating serviceMovieRating, UserService userService, string postersDirectory)
         {
-            _movie = movie;
-            _user = user;
+            _movieID = id;
+            _serviceMovieRating = serviceMovieRating;
+            _userService = userService;
             _movieService = new MovieService();
-            _serviceMovieRating = new ServiceMovieRating();
-            Poster = new BitmapImage(new Uri(Path.Combine(_postersDirectory, $"{_movie.Id}.jpg"), UriKind.Absolute));
-            Countries = new ObservableCollection<Country>(_movieService.GetCountriesByMovieId(movie.Id));
-            Directors = new ObservableCollection<Director>(_movieService.GetDirectorsByMovieId(movie.Id));
-            Genres = new ObservableCollection<Genre>(_movieService.GetGenresByMovieId(movie.Id));
-            Languages = new ObservableCollection<Language>(_movieService.GetLanguagesByMovieId(movie.Id));
-            LikeCommand = new DelegateCommand(LikeMovie);
-            DisLikeCommand = new DelegateCommand(DisLikeMovie);
+            _postersDirectory = postersDirectory;
+
+            try
+            {
+                Poster = LoadPoster();
+                Countries = LoadData(() => _movieService.GetCountriesByMovieId(_movieID));
+                Directors = LoadData(() => _movieService.GetDirectorsByMovieId(_movieID));
+                Genres = LoadData(() => _movieService.GetGenresByMovieId(_movieID));
+                Languages = LoadData(() => _movieService.GetLanguagesByMovieId(_movieID));
+            }
+            catch (Exception ex)
+            {
+                HandleError("Error loading movie details", ex);
+            }
+
+            LikeCommand = new DelegateCommand(LikeMovie, CanRateMovie);
+            DisLikeCommand = new DelegateCommand(DisLikeMovie, CanRateMovie);
         }
+
+        private BitmapImage LoadPoster()
+        {
+            try
+            {
+                var movie = _movieService.GetMovieById(_movieID);
+                var posterPath = Path.Combine(_postersDirectory, $"{movie.Id}.jpg");
+                if (File.Exists(posterPath))
+                    return new BitmapImage(new Uri(posterPath, UriKind.Absolute));
+                else
+                    throw new FileNotFoundException("Poster not found.", posterPath);
+            }
+            catch (Exception ex)
+            {
+                HandleError("Error loading poster", ex);
+                return null;
+            }
+        }
+
+        private List<string> LoadData(Func<List<string>> dataLoader)
+        {
+            try
+            {
+                return dataLoader();
+            }
+            catch (Exception ex)
+            {
+                HandleError("Error loading movie data", ex);
+                return new List<string>();
+            }
+        }
+
         private void LikeMovie()
         {
-            _serviceMovieRating.RateMovie(_user, _movie.Id, true);
+            try
+            {
+                _serviceMovieRating.RateMovie(_userService.GetCurrentUser(), _movieID, true);
+            }
+            catch (Exception ex)
+            {
+                HandleError("Error while liking the movie", ex);
+            }
         }
+
         private void DisLikeMovie()
         {
-            _serviceMovieRating.RateMovie(_user, _movie.Id, false);
+            try
+            {
+                _serviceMovieRating.RateMovie(_userService.GetCurrentUser(), _movieID, false);
+            }
+            catch (Exception ex)
+            {
+                HandleError("Error while disliking the movie", ex);
+            }
         }
-        public string Name => _movie.Name;
-        public int Date => _movie.Date;
-        public string Tagline => _movie.Tagline;
-        public string Description => _movie.Description;
-        public int Minute => _movie.Minute;
-        public double Rating => _movie.Rating;
-        public BitmapImage Poster { get;}
-        public ObservableCollection<Country> Countries { get; }
-        public ObservableCollection<Director> Directors { get; }
-        public ObservableCollection<Genre> Genres { get; }
-        public ObservableCollection<Language> Languages { get; }
+
+        private bool CanRateMovie()
+        {
+            return _userService.GetCurrentUser() != null;
+        }
+
+        private void HandleError(string message, Exception ex)
+        {
+            MessageBox.Show($"{message}: {ex.Message}");
+        }
+
+        public string Name => SafeGetMovieData(() => _movieService.GetMovieById(_movieID).Name);
+        public int Date => SafeGetMovieData(() => _movieService.GetMovieById(_movieID).Date, 0);
+        public string Tagline => SafeGetMovieData(() => _movieService.GetMovieById(_movieID).Tagline);
+        public string Description => SafeGetMovieData(() => _movieService.GetMovieById(_movieID).Description);
+        public int Minute => SafeGetMovieData(() => _movieService.GetMovieById(_movieID).Minute, 0);
+        public double Rating => SafeGetMovieData(() => _movieService.GetMovieById(_movieID).Rating, 0.0);
+        public BitmapImage Poster { get; }
+        public List<string> Countries { get; }
+        public List<string> Directors { get; }
+        public List<string> Genres { get; }
+        public List<string> Languages { get; }
         public ICommand LikeCommand { get; }
         public ICommand DisLikeCommand { get; }
+
+        private T SafeGetMovieData<T>(Func<T> dataFetcher, T defaultValue = default)
+        {
+            try
+            {
+                return dataFetcher();
+            }
+            catch (Exception ex)
+            {
+                HandleError("Error fetching movie data", ex);
+                return defaultValue;
+            }
+        }
     }
 }

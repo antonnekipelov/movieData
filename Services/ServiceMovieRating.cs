@@ -1,56 +1,115 @@
 ﻿using Newtonsoft.Json;
 using RecomendMovie.Models;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-
+using System.Windows;
 
 public class ServiceMovieRating
 {
-    private readonly string _ratingsFilePath = "ratings.json";
+    private const string _ratingsFilePath = "ratings.json";
     private List<MovieRating> _ratings;
+    public event Action _ratingsUpdated;
 
     public ServiceMovieRating()
     {
-        _ratings = LoadRatings();
+        try
+        {
+            _ratings = LoadRatings();
+        }
+        catch (Exception ex)
+        {
+            MessageBox.Show($"An error occurred while loading ratings: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            _ratings = new List<MovieRating>();
+        }
     }
 
     public void RateMovie(User user, int movieId, bool rate)
     {
-        _ratings = LoadRatings();
-        var existingRating = _ratings.FirstOrDefault(r => r.MovieId == movieId && r.User.Username == user.Username);
-        if (existingRating != null)
-            // Обновляем оценку, если фильм уже был оценен
-            existingRating.Rate = rate;
-        else
+        try
         {
-            var movieRating = new MovieRating
-            {
-                User = user,
-                MovieId = movieId,
-                Rate = rate
-            };
+            var existingRating = _ratings.FirstOrDefault(r => r.MovieId == movieId && r.User.Username == user.Username);
 
-            _ratings.Add(movieRating);
+            if (existingRating != null)
+                existingRating.Rate = rate;
+            else
+            {
+                var movieRating = new MovieRating
+                {
+                    User = user,
+                    MovieId = movieId,
+                    Rate = rate
+                };
+                _ratings.Add(movieRating);
+            }
+
+            SaveRatings();
+
+            _ratingsUpdated?.Invoke();
         }
-        SaveRatings();
+        catch (Exception ex)
+        {
+            MessageBox.Show($"An error occurred while rating the movie: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+        }
     }
+
+    public List<int> GetPositiveRatedMovies (User user)
+    {
+        try
+        {
+            return _ratings
+                .Where(r => r.User.Username == user.Username && r.Rate)
+                .Select(r => r.MovieId)
+                .ToList();
+        }
+        catch (Exception ex)
+        {
+            MessageBox.Show($"An error occurred while fetching positive rated movies: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            return new List<int>();
+        }
+    }
+
     public List<MovieRating> LoadRatings()
     {
-        if (!File.Exists(_ratingsFilePath))
+        try
+        {
+            if (!File.Exists(_ratingsFilePath))
+            {
+                return new List<MovieRating>();
+            }
+
+            var json = File.ReadAllText(_ratingsFilePath);
+            return JsonConvert.DeserializeObject<List<MovieRating>>(json) ?? new List<MovieRating>();
+        }
+        catch (Exception ex)
+        {
+            MessageBox.Show($"An error occurred while loading ratings from file: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             return new List<MovieRating>();
-        var json = File.ReadAllText(_ratingsFilePath);
-        return JsonConvert.DeserializeObject<List<MovieRating>>(json);
+        }
     }
+
+    public List<MovieRating> GetRatedMovies(User user)
+    {
+        try
+        {
+            return _ratings.Where(r => r.User.Username == user.Username).ToList();
+        }
+        catch (Exception ex)
+        {
+            MessageBox.Show($"An error occurred while fetching rated movies: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            return new List<MovieRating>();
+        }
+    }
+
     private void SaveRatings()
     {
-        var json = JsonConvert.SerializeObject(_ratings, Formatting.Indented);
-        File.WriteAllText(_ratingsFilePath, json);
+        try
+        {
+            var json = JsonConvert.SerializeObject(_ratings, Formatting.Indented);
+            File.WriteAllText(_ratingsFilePath, json);
+            MessageBox.Show("Your rating has been recorded.", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
+        }
+        catch (Exception ex)
+        {
+            MessageBox.Show($"An error occurred while saving ratings: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+        }
     }
-
-    /*public void SaveRatingsOnExit()
-    {
-        SaveRatings();
-    }*/
-
 }

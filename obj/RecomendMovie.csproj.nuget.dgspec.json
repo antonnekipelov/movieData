@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\education\\C#\\Кursovaya\\PRISM\\RecomendMovie\\RecomendMovie.csproj": {}
+    "D:\\education\\C#\\Кursovaya\\PRISM\\recemendationFilms\\RecomendMovie.csproj": {}
   },
   "projects": {
-    "D:\\education\\C#\\Кursovaya\\PRISM\\RecomendMovie\\RecomendMovie.csproj": {
+    "D:\\education\\C#\\Кursovaya\\PRISM\\recemendationFilms\\RecomendMovie.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\education\\C#\\Кursovaya\\PRISM\\RecomendMovie\\RecomendMovie.csproj",
+        "projectUniqueName": "D:\\education\\C#\\Кursovaya\\PRISM\\recemendationFilms\\RecomendMovie.csproj",
         "projectName": "RecomendMovie",
-        "projectPath": "D:\\education\\C#\\Кursovaya\\PRISM\\RecomendMovie\\RecomendMovie.csproj",
+        "projectPath": "D:\\education\\C#\\Кursovaya\\PRISM\\recemendationFilms\\RecomendMovie.csproj",
         "packagesPath": "C:\\Users\\artor\\.nuget\\packages\\",
-        "outputPath": "D:\\education\\C#\\Кursovaya\\PRISM\\RecomendMovie\\obj\\",
+        "outputPath": "D:\\education\\C#\\Кursovaya\\PRISM\\recemendationFilms\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "D:\\VisualStudioShared\\NuGetPackages"
@@ -54,10 +54,6 @@
               "target": "Package",
               "version": "[33.0.1, )"
             },
-            "Microsoft.Xaml.Behaviors.Wpf": {
-              "target": "Package",
-              "version": "[1.1.122, )"
-            },
             "Newtonsoft.Json": {
               "target": "Package",
               "version": "[13.0.3, )"
@@ -69,14 +65,6 @@
             "Prism.Wpf": {
               "target": "Package",
               "version": "[8.1.97, )"
-            },
-            "System.Data.SQLite": {
-              "target": "Package",
-              "version": "[1.0.118, )"
-            },
-            "Unity": {
-              "target": "Package",
-              "version": "[5.11.10, )"
             }
           },
           "imports": [

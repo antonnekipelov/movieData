@@ -3,6 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:converters="clr-namespace:RecomendMovie.Converters"
         mc:Ignorable="d"
         Title="Movie Details"
         Style="{StaticResource ModalWindowStyle}"
@@ -12,70 +13,96 @@
             <RowDefinition Style="{StaticResource RowHeightAutoStyle}"/>
             <RowDefinition Style="{StaticResource RowHeightStyle}"/>
         </Grid.RowDefinitions>
-
-        <!-- Название фильма по центру -->
         <TextBlock Text="{Binding Name}" Style="{StaticResource TitleTextBlockStyle}" Grid.Row="0"/>
-
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Style="{StaticResource ColumnWidth2Style}"/>
                 <ColumnDefinition Style="{StaticResource ColumnWidth1Style}"/>
             </Grid.ColumnDefinitions>
-
-            <!-- Постер фильма -->
             <Image Grid.Column="1" Source="{Binding Poster}" Style="{StaticResource MoviePosterImage}"/>
-
-            <!-- Информация о фильме -->
-            <Border Style="{Binding PaddedBorderStyle}">
+            <Border Style="{StaticResource PaddedBorderStyle}">
                 <StackPanel Grid.Column="1">
-                    <TextBlock Text="Год релиза:" Style="{StaticResource BoldLabelStyle}" />
-                    <TextBlock Text="{Binding Date}" Style="{StaticResource InfoTextBlockStyle}" />
-                    <TextBlock Text="Жанр:" Style="{StaticResource BoldLabelStyle}"/>
-                    <ItemsControl ItemsSource="{Binding Genres}">
-                        <ItemsControl.ItemTemplate>
-                            <DataTemplate>
-                                <TextBlock Text="{Binding GenreName}" Style="{StaticResource InfoTextBlockStyle}"/>
-                            </DataTemplate>
-                        </ItemsControl.ItemTemplate>
-                    </ItemsControl>
-                    <TextBlock Text="Страна:" Style="{StaticResource BoldLabelStyle}"/>
-                    <ItemsControl ItemsSource="{Binding Countries}">
-                        <ItemsControl.ItemTemplate>
-                            <DataTemplate>
-                                <TextBlock Text="{Binding CountryName}" Style="{StaticResource InfoTextBlockStyle}"/>
-                            </DataTemplate>
-                        </ItemsControl.ItemTemplate>
-                    </ItemsControl>
-                    <TextBlock Text="Язык:" Style="{StaticResource BoldLabelStyle}"/>
-                    <ItemsControl ItemsSource="{Binding Languages}">
-                        <ItemsControl.ItemTemplate>
-                            <DataTemplate>
-                                <StackPanel>
-                                    <TextBlock Text="{Binding LanguageName}" Style="{StaticResource InfoTextBlockStyle}"/>
-                                </StackPanel>
-                            </DataTemplate>
-                        </ItemsControl.ItemTemplate>
-                    </ItemsControl>
-                    <TextBlock Text="Режиссер:" Style="{StaticResource BoldLabelStyle}"/>
-                    <ItemsControl ItemsSource="{Binding Directors}">
-                        <ItemsControl.ItemTemplate>
-                            <DataTemplate>
-                                <TextBlock Text="{Binding Name}" Style="{StaticResource InfoTextBlockStyle}"/>
-                            </DataTemplate>
-                        </ItemsControl.ItemTemplate>
-                    </ItemsControl>
-                    <TextBlock Text="Слоган:" Style="{StaticResource BoldLabelStyle}" />
-                    <TextBlock Text="{Binding Tagline}" Style="{StaticResource InfoTextBlockStyle}" />
-                    <TextBlock Text="Описание:" Style="{StaticResource BoldLabelStyle}" />
-                    <TextBlock Text="{Binding Description}" Style="{StaticResource MultilineTextBlockStyle}" />
-                    <TextBlock Text="Продолжительность:" Style="{StaticResource BoldLabelStyle}" />
-                    <TextBlock Text="{Binding Minute}" Style="{StaticResource InfoTextBlockStyle}" />
-                    <TextBlock Text="Рейтинг:" Style="{StaticResource BoldLabelStyle}" />
-                    <TextBlock Text="{Binding Rating}" Style="{StaticResource InfoTextBlockStyle}" />
+                    <WrapPanel>
+                        <TextBlock Text="Год релиза: " Style="{StaticResource BoldLabelStyle}" />
+                        <TextBlock Text="{Binding Date}" Style="{StaticResource InfoTextBlockStyle}"/>
+                    </WrapPanel>
+                    <WrapPanel>
+                        <TextBlock Text="Жанр: " Style="{StaticResource BoldLabelStyle}"/>
+                        <TextBlock Style="{StaticResource InfoTextBlockStyle}">
+                            <TextBlock.Text>
+                                <MultiBinding StringFormat="{}{0}">
+                                    <Binding Path="Genres">
+                                        <Binding.Converter>
+                                            <converters:CollectionToStringConverter />
+                                        </Binding.Converter>
+                                    </Binding>
+                                </MultiBinding>
+                            </TextBlock.Text>
+                        </TextBlock>
+                    </WrapPanel>
+                    <WrapPanel>
+                        <TextBlock Text="Страна: " Style="{StaticResource BoldLabelStyle}"/>
+                        <TextBlock Style="{StaticResource InfoTextBlockStyle}">
+                            <TextBlock.Text>
+                                <MultiBinding StringFormat="{}{0}">
+                                    <Binding Path="Countries">
+                                        <Binding.Converter>
+                                            <converters:CollectionToStringConverter />
+                                        </Binding.Converter>
+                                    </Binding>
+                                </MultiBinding>
+                            </TextBlock.Text>
+                        </TextBlock>
+                    </WrapPanel>
+                    <WrapPanel>
+                        <TextBlock Text="Язык: " Style="{StaticResource BoldLabelStyle}"/>
+                        <TextBlock Style="{StaticResource InfoTextBlockStyle}">
+                            <TextBlock.Text>
+                                <MultiBinding StringFormat="{}{0}">
+                                    <Binding Path="Languages">
+                                        <Binding.Converter>
+                                            <converters:CollectionToStringConverter />
+                                        </Binding.Converter>
+                                    </Binding>
+                                </MultiBinding>
+                            </TextBlock.Text>
+                        </TextBlock>
+                    </WrapPanel>
+                    <WrapPanel>
+                        <TextBlock Text="Режиссер: " Style="{StaticResource BoldLabelStyle}"/>
+                        <TextBlock Style="{StaticResource InfoTextBlockStyle}">
+                            <TextBlock.Text>
+                                <MultiBinding StringFormat="{}{0}">
+                                    <Binding Path="Directors">
+                                        <Binding.Converter>
+                                            <converters:CollectionToStringConverter />
+                                        </Binding.Converter>
+                                    </Binding>
+                                </MultiBinding>
+                            </TextBlock.Text>
+                        </TextBlock>
+                    </WrapPanel>
+                    <WrapPanel>
+                        <TextBlock Text="Слоган: " Style="{StaticResource BoldLabelStyle}" />
+                        <TextBlock Text="{Binding Tagline}" Style="{StaticResource InfoTextBlockStyle}"/>
+                    </WrapPanel>
+                    <WrapPanel>
+                        <TextBlock Text="Описание: " Style="{StaticResource BoldLabelStyle}" />
+                        <TextBlock Text="{Binding Description}" Style="{StaticResource MultilineTextBlockStyle}"/>
+                    </WrapPanel>
+                    <WrapPanel>
+                        <TextBlock Text="Продолжительность: " Style="{StaticResource BoldLabelStyle}" />
+                        <TextBlock Text="{Binding Minute}" Style="{StaticResource InfoTextBlockStyle}"/>
+                    </WrapPanel>
+                    <WrapPanel>
+                        <TextBlock Text="Рейтинг: " Style="{StaticResource BoldLabelStyle}" />
+                        <TextBlock Text="{Binding Rating}" Style="{StaticResource InfoTextBlockStyle}"/>
+                    </WrapPanel>
+
                     <!-- Лайк и Дизлайк -->
-                    <StackPanel>
+                    <StackPanel Orientation="Horizontal">
                         <Button Content="Нравится" Command="{Binding LikeCommand}" Style="{StaticResource CommonButtonStyle}"/>
-                        <Button Content="Не нравится" Command="{Binding DisLikeCommand}" Style="{StaticResource CommonButtonStyle}"/>
+                        <Button Content="Не нравится" Command="{Binding DisLikeCommand}" Style="{StaticResource CommonButtonStyle}" />
                     </StackPanel>
                 </StackPanel>
             </Border>
